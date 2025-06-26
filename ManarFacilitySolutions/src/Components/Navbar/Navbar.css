@@ -1,0 +1,63 @@
+.Navbar {
+  background-color: #e7ddd7;
+  height: 87px;
+  display: flex;
+  align-items: center;
+}
+
+.Navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Navbar h1 {
+  font-size: 20px;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+.Navbar h1:hover {
+  transform: scale(1.2);
+}
+
+.Navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.Navbar ul li {
+  margin-right: 52px;
+  font-size: 20px;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+.Navbar ul li:last-child {
+  margin-right: 0px;
+}
+.Navbar ul li:hover {
+  transform: scale(1.2);
+}
+
+.Navbar ul li a {
+  text-decoration: none;
+  color: black;
+}
+.Navbar ul li a:hover {
+  color: #174777;
+}
+
+.Navbar ul li button {
+  height: 37px;
+  width: 102px;
+  background-color: #174777;
+  border-radius: 3px;
+  border: none;
+}
+.Navbar ul li button a {
+  color: white;
+  font-size: 16px;
+}
+.Navbar ul li button a:hover {
+  color: white;
+}
