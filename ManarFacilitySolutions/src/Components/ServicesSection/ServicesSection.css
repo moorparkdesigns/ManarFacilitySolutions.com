@@ -1,0 +1,33 @@
+.ServicesSection {
+  background-color: #eff3f8;
+  height: 567px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ServicesSection h1 {
+  margin: auto;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 46px;
+}
+.ServicesSection .content {
+  display: flex;
+  margin: auto;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+}
+
+.ServicesSection .content div {
+  width: 100%;
+  aspect-ratio: 16 / 16;
+  margin-right: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+}
+.ServicesSection .content div:last-child {
+  margin-right: 0;
+}
