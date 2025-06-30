@@ -11,13 +11,16 @@
   align-items: center;
 }
 
-.Navbar h1 {
-  font-size: 20px;
-  font-weight: 500;
+.Navbar .logo {
   transition: transform 0.3s ease;
 }
-.Navbar h1:hover {
+.Navbar .logo:hover {
   transform: scale(1.2);
+}
+
+.Navbar .logo img {
+  width: 170px;
+  height: 43px;
 }
 
 .Navbar ul {

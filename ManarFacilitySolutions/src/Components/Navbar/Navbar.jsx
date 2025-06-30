@@ -5,15 +5,19 @@ function Navbar() {
   return (
     <div className="Navbar">
       <div className="container">
-        <div>
-          <h1>MANAR FACILITY SOLUTIONS</h1>
+        <div className="logo">
+          <Link to="/">
+            <img src="/Images/logo.png" alt="logo" />
+          </Link>
         </div>
         <div>
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>Services</li>
+            <li>
+              <Link to="/Services">Services</Link>
+            </li>
             <li>
               <Link to="/About">About</Link>
             </li>
