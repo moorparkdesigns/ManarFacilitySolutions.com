@@ -1,0 +1,46 @@
+.our-mission {
+  height: 574px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  max-width: 1440px;
+}
+.our-mission div {
+  width: 50%;
+}
+.our-mission div h1 {
+  font-size: 40px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.our-mission div p {
+  font-size: 16px;
+  width: 100%;
+  max-width: 413px;
+  margin-bottom: 46px;
+}
+.our-mission div button {
+  color: white;
+  background-color: #174777;
+  width: 114px;
+  height: 46px;
+  border: none;
+  border-radius: 3px;
+  transition: transform 0.3s ease;
+  font-size: 18px;
+}
+
+.our-mission div button:hover {
+  transform: scale(1.2);
+}
+.our-mission .img {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.our-mission div img {
+  height: 400px;
+  width: 90%;
+}
