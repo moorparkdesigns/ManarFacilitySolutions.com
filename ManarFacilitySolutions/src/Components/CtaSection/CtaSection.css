@@ -42,6 +42,8 @@
 }
 .cta .background-content a {
   color: #a9d4ff;
+  width: max-content;
+  margin: auto;
 }
 
 .cta .background-content button {
