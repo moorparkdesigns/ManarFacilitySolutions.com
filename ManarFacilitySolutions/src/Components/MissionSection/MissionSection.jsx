@@ -3,7 +3,7 @@ import "./MissionSection.css";
 
 function MissionSection() {
   return (
-    <div className="our-mission container">
+    <div className="our-mission container-2">
       <div>
         <h1>Our mission</h1>
         <p>

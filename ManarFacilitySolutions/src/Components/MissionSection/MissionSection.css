@@ -3,20 +3,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
   margin: auto;
-  max-width: 1440px;
 }
 .our-mission div {
   width: 50%;
 }
 .our-mission div h1 {
-  font-size: 40px;
   margin-bottom: 12px;
   font-weight: 500;
 }
 .our-mission div p {
-  font-size: 16px;
   width: 100%;
   max-width: 413px;
   margin-bottom: 46px;
