@@ -35,11 +35,9 @@
 }
 
 .cta .background-content h1 {
-  font-size: 50px;
   margin-bottom: 29px;
 }
 .cta .background-content p {
-  font-size: 20px;
   margin-bottom: 29px;
 }
 .cta .background-content a {
@@ -56,6 +54,7 @@
   border: none;
   color: white;
   text-decoration: none;
+  transition: transform 0.3s ease;
 }
 
 .cta .background-content button:hover {
