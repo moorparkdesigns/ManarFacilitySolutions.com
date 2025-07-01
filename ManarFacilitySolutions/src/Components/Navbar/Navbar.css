@@ -3,6 +3,20 @@
   height: 87px;
   display: flex;
   align-items: center;
+  z-index: 999;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.Navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.Navbar.visible {
+  transform: translateY(0);
 }
 
 .Navbar .container {
