@@ -25,7 +25,7 @@ function Footer() {
                 <Link to="/Contact">Contact</Link>
               </li>
               <li>
-                <Link to="/BookNow">Book Now</Link>
+                <Link to="/Book-Now">Book Now</Link>
               </li>
             </ul>
           </span>

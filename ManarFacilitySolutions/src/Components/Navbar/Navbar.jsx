@@ -44,7 +44,7 @@ function Navbar() {
             </li>
             <li>
               <button>
-                <Link to="/Conact">Book Now</Link>
+                <Link to="/Book-Now">Book Now</Link>
               </button>
             </li>
           </ul>
