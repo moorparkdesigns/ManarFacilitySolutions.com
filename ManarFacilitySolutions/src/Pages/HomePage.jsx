@@ -1,8 +1,7 @@
-import HeroSection from "../Components/HeroSection/HeroSection";
-import MissionSection from "../Components/MissionSection/MissionSection";
-import ServicesSection from "../Components/ServicesSection/ServicesSection";
-import CtaSection from "../Components/CtaSection/CtaSection";
-import Footer from "../Components/Footer/Footer";
+import HeroSection from "../Components/HomePageSections/HeroSection/HeroSection";
+import MissionSection from "../Components/HomePageSections/MissionSection/MissionSection";
+import ServicesSection from "../Components/HomePageSections/ServicesSection/ServicesSection";
+import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection";
 
 function HomePage() {
   return (
@@ -11,7 +10,6 @@ function HomePage() {
       <MissionSection />
       <ServicesSection />
       <CtaSection />
-      <Footer />
     </>
   );
 }

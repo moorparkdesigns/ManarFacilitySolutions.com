@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar";
+import Navbar from "./Components/GlobalSection/Navbar/Navbar";
+import Footer from "./Components/GlobalSection/Footer/Footer";
 import HomePage from "./Pages/HomePage";
 
 function Layout({ children }) {
@@ -8,6 +9,7 @@ function Layout({ children }) {
     <>
       <Navbar />
       <div className="content">{children}</div>
+      <Footer />
     </>
   );
 }

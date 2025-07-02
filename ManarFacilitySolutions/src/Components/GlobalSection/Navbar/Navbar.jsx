@@ -43,9 +43,18 @@ function Navbar() {
               <Link to="/Conact">Contact</Link>
             </li>
             <li>
-              <button>
-                <Link to="/Book-Now">Book Now</Link>
-              </button>
+              <a
+                href="https://blog.manarfacilitysolutions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Blog
+              </a>
+            </li>
+            <li>
+              <Link to="/Book-Now">
+                <button>Book Now</button>
+              </Link>
             </li>
           </ul>
         </div>

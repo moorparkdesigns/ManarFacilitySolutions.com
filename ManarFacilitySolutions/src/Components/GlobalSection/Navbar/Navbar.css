@@ -70,11 +70,6 @@
   background-color: #174777;
   border-radius: 3px;
   border: none;
-}
-.Navbar ul li button a {
   color: white;
   font-size: 16px;
-}
-.Navbar ul li button a:hover {
-  color: white;
 }

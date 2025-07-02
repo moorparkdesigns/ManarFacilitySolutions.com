@@ -25,6 +25,15 @@ function Footer() {
                 <Link to="/Contact">Contact</Link>
               </li>
               <li>
+                <a
+                  href="https://blog.manarfacilitysolutions.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Blog
+                </a>
+              </li>
+              <li>
                 <Link to="/Book-Now">Book Now</Link>
               </li>
             </ul>
