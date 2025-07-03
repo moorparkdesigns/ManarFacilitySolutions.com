@@ -29,3 +29,11 @@ p {
   font-size: 18px;
   font-weight: 400;
 }
+
+/* Styles for tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+}
+
+/* Styles for phones */
+@media (max-width: 576px) {
+}
