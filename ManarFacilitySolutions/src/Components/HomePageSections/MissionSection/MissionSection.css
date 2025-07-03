@@ -6,8 +6,9 @@
   margin: auto;
 }
 .our-mission div {
-  width: 50%;
+  width: 48%;
 }
+
 .our-mission div h1 {
   margin-bottom: 12px;
   font-weight: 500;
@@ -32,11 +33,45 @@
   transform: scale(1.2);
 }
 .our-mission .img {
-  display: flex;
-  justify-content: end;
-  align-items: center;
+  display: block;
 }
-.our-mission div img {
+.our-mission .img img {
   height: 400px;
-  width: 90%;
+  width: 95%;
+  margin-left: auto;
+  float: right;
+}
+
+/* Styles for tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .our-mission div img {
+    height: 415px;
+    width: 95%;
+    max-width: 348px;
+  }
+}
+
+/* Styles for phones */
+@media (max-width: 576px) {
+  .our-mission {
+    padding: 30px 0;
+  }
+  .our-mission {
+    height: 871px;
+    flex-direction: column-reverse;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .our-mission div {
+    width: 100%;
+    text-align: left;
+  }
+
+  .our-mission div img {
+    height: 237px;
+    width: 100%;
+    margin-bottom: 29px;
+    float: center;
+  }
 }

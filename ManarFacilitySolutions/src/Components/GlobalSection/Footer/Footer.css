@@ -48,3 +48,48 @@
 .footer .container .content span ul li a:hover {
   text-decoration: underline;
 }
+
+/* Styles for tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .footer {
+    height: 140px;
+  }
+
+  .footer .container img {
+    width: 150px;
+    height: 35px;
+  }
+
+  .footer .container .content span {
+    font-size: 15px;
+  }
+}
+
+/* Styles for phones */
+@media (max-width: 576px) {
+  .footer {
+    height: 210px;
+  }
+
+  .footer .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .footer .container img {
+    width: 150px;
+    height: 35px;
+    margin-bottom: 37px;
+  }
+
+  .footer .container .content span ul li {
+    margin-right: 7px;
+    padding-right: 7px;
+  }
+
+  .footer .container .content span {
+    font-size: 13px;
+    text-align: left;
+  }
+}

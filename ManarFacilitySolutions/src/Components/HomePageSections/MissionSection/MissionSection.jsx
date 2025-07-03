@@ -24,7 +24,16 @@ function MissionSection() {
         </Link>
       </div>
       <div className="img">
-        <img src="/Images/Back-ground-images/2.jpg" alt="image" />
+        <picture>
+          {/* Tablet image */}
+          <source
+            media="(max-width: 991px)"
+            srcSet="/Images/Back-ground-images/(4)-2.png"
+          />
+
+          {/* Default (desktop) image */}
+          <img src="/Images/Back-ground-images/4.jpg" alt="Our mission image" />
+        </picture>
       </div>
     </div>
   );
