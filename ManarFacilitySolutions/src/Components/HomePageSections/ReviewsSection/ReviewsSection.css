@@ -1,0 +1,113 @@
+.reviews-section {
+  height: 728px;
+  overflow-x: hidden;
+}
+
+.reviews-section .container-2 {
+  padding: 84px 0;
+}
+
+.reviews-section .container-2 h1 {
+  margin-bottom: 8px;
+}
+
+.reviews-section .container-2 p {
+  margin-bottom: 25px;
+}
+
+.review {
+  width: 478px;
+  height: 224px;
+  background-color: #f5f2ef;
+  padding: 27px 33px;
+  font-weight: 400;
+  cursor: grab;
+}
+
+.reviews-track {
+  cursor: grab;
+}
+
+.review:active {
+  cursor: grabbing;
+}
+
+.star-icon {
+  width: 26px;
+  height: 26px;
+  margin-right: 2px;
+}
+
+.stars {
+  margin-bottom: 21px;
+}
+
+.review p {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.review span {
+  font-size: 18px;
+}
+
+.carousel-viewport {
+  width: 100%;
+  overflow-x: auto; /* <-- CHANGE THIS */
+  position: relative;
+}
+
+.carousel-viewport::-webkit-scrollbar,
+.carousel-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-viewport,
+.carousel-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* this scrolls, full width of content */
+.carousel-scroll {
+  width: max-content;
+  cursor: grab;
+  user-select: none;
+  transform: rotate(4deg);
+}
+
+.carousel-scroll:active {
+  cursor: grabbing;
+}
+
+/* flex row for review cards */
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  padding: 0 20px;
+  width: max-content;
+}
+
+/* hide scrollbar across browsers */
+.carousel-viewport::-webkit-scrollbar,
+.carousel-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-viewport,
+.carousel-scroll {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.carousel-container {
+  transform: rotate(-4deg);
+  transform-origin: center;
+}
+
+.carousel-scroll,
+.review {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
