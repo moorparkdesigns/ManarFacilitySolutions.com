@@ -23,12 +23,25 @@ function Navbar() {
     return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY]);
 
+  // Disable scroll on body when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
+  }, [menuOpen]);
+
+  // 👇 Automatically close menu if screen resizes to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 991 && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [menuOpen]);
 
   const toggleMenu = () => {
@@ -44,9 +57,7 @@ function Navbar() {
         }`}
       >
         <div className="container">
-          {/* Hamburger icon on small screens */}
-
-          {/* Logo (hidden on mobile or when menu open) */}
+          {/* Hamburger icon and logo */}
           <div>
             <div className="menu-icon" onClick={toggleMenu}>
               <MenuIcon fontSize="large" />
@@ -125,6 +136,7 @@ function Navbar() {
           </ul>
         </div>
 
+        {/* Logo at the bottom of mobile menu */}
         <div className="mobile-logo">
           <Link to="/" onClick={toggleMenu}>
             <img src="/Images/logo.png" alt="logo" />
