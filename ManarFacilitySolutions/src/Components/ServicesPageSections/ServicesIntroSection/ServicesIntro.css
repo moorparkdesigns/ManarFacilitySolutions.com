@@ -1,3 +1,11 @@
 .services-intro {
   margin-top: 87px;
 }
+.services-intro h1 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.services-intro p {
+  text-align: center;
+  margin-top: 50px;
+}
