@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./Components/GlobalSection/Navbar/Navbar";
 import Footer from "./Components/GlobalSection/Footer/Footer";
 import HomePage from "./Pages/HomePage";
+import ServicesPage from "./Pages/ServicesPage";
 
 function Layout({ children }) {
   return (
@@ -25,9 +26,9 @@ function App() {
           </Layout>
         }
       />
-      <Route path="/services" element={<Layout>{/*<Services />*/}</Layout>} />
-      <Route path="/about" element={<Layout>{/*<About />*/}</Layout>} />
-      <Route path="/contact" element={<Layout>{/* <Contact />*/}</Layout>} />
+      <Route path="/Services" element={<Layout>{<ServicesPage />}</Layout>} />
+      <Route path="/About" element={<Layout>{/*<About />*/}</Layout>} />
+      <Route path="/Contact" element={<Layout>{/* <Contact />*/}</Layout>} />
     </Routes>
   );
 }
