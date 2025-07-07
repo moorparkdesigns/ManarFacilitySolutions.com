@@ -36,15 +36,11 @@
   width: 50%;
   color: white;
   margin-bottom: 77px;
+  max-width: 571px;
 }
 
 .heroSection .text h1 {
-  max-width: 571px;
   margin-bottom: 8px;
-}
-
-.heroSection .text p {
-  max-width: 571px;
 }
 
 .heroSection .img {
@@ -113,4 +109,66 @@
 .heroSection .Book-today:hover::after {
   opacity: 1;
   transform: scale(1.15);
+}
+
+/* Styles for tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .heroSection .text {
+    width: 50%;
+    color: white;
+    margin-bottom: 65px;
+  }
+
+  .heroSection::before {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .heroSection .Book-today {
+    position: relative;
+    width: 370px;
+    height: 205px;
+    cursor: pointer;
+    overflow: visible;
+  }
+
+  .heroSection .Book-today::after {
+    width: 80%;
+    height: 224px;
+  }
+}
+
+/* Styles for phones */
+@media (max-width: 576px) {
+  .heroSection {
+    height: 932px;
+  }
+
+  .heroSection::before {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .heroSection .background-content {
+    width: 100%;
+    display: block;
+    margin-top: 329px;
+  }
+
+  .heroSection .text {
+    width: 85%;
+    max-width: none;
+  }
+
+  .heroSection .Book-today {
+    position: relative;
+    width: 370px;
+    height: 175px;
+    cursor: pointer;
+    overflow: visible;
+    background-color: aqua;
+  }
+
+  .heroSection .Book-today::after {
+    width: 80%;
+    height: 194px;
+  }
 }

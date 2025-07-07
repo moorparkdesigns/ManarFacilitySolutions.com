@@ -1,3 +1,4 @@
+/* Main Navbar */
 .Navbar {
   background-color: #e7ddd7;
   height: 87px;
@@ -11,38 +12,49 @@
   width: 100%;
 }
 
+/* Hide Navbar when scrolling down */
 .Navbar.hidden {
   transform: translateY(-100%);
 }
 
+/* Show Navbar when scrolling up */
 .Navbar.visible {
   transform: translateY(0);
 }
 
+/* Hide entire navbar when menu is open */
+.Navbar.hide-navbar {
+  display: none;
+}
+
+/* Navbar inner container */
 .Navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1rem;
 }
 
+/* Logo styles */
 .Navbar .logo {
   transition: transform 0.3s ease;
 }
 .Navbar .logo:hover {
   transform: scale(1.2);
 }
-
 .Navbar .logo img {
   width: 170px;
   height: 43px;
 }
 
+/* Desktop navigation links */
 .Navbar ul {
   display: flex;
   align-items: center;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
 .Navbar ul li {
   margin-right: 52px;
   font-size: 20px;
@@ -50,12 +62,11 @@
   transition: transform 0.3s ease;
 }
 .Navbar ul li:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 .Navbar ul li:hover {
   transform: scale(1.2);
 }
-
 .Navbar ul li a {
   text-decoration: none;
   color: black;
@@ -63,7 +74,6 @@
 .Navbar ul li a:hover {
   color: #174777;
 }
-
 .Navbar ul li button {
   height: 37px;
   width: 102px;
@@ -72,4 +82,182 @@
   border: none;
   color: white;
   font-size: 16px;
+  cursor: pointer;
+}
+.Navbar ul li button:hover {
+  background-color: #123b63;
+}
+
+/* Hamburger Icon */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Hide logo when menu is open */
+.hidden-logo {
+  display: none;
+}
+
+/* Prevent background scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -120%;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e7ddd7;
+  z-index: 9999;
+  transition: left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+  align-items: flex-start;
+}
+
+/* When open */
+.mobile-menu.open {
+  left: 0;
+}
+
+/* Close Icon inside mobile menu */
+.close-icon {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  cursor: pointer;
+  margin-bottom: 82px; /* fixed gap below close icon */
+}
+
+/* Mobile nav links (wrapper) */
+.mobile-nav {
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav ul li {
+  margin-bottom: 1.5rem;
+  font-size: 20px;
+}
+
+.mobile-nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.mobile-nav ul li a:hover {
+  color: #174777;
+}
+
+.mobile-nav ul li button {
+  height: 37px;
+  width: 102px;
+  background-color: #174777;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.mobile-nav ul li button:hover {
+  background-color: #123b63;
+}
+
+/* Mobile logo at bottom */
+.mobile-logo {
+  text-align: center;
+  padding: 0 1.5rem;
+  margin-top: auto;
+  margin-bottom: 40px; /* fixed margin from bottom */
+  width: max-content;
+}
+
+.mobile-logo img {
+  width: 140px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.mobile-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* Small screens */
+@media (max-width: 576px) {
+  .Navbar .logo {
+    display: none;
+  }
+
+  .Navbar .logo.hidden-logo:last-child {
+    display: none;
+  }
+
+  .close-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .Navbar ul li {
+    display: none;
+  }
+
+  .Navbar ul li:last-child {
+    display: block;
+  }
+
+  .mobile-nav ul li a {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .menu-icon {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+
+/* Tablet screens */
+@media (min-width: 577px) and (max-width: 991px) {
+  .Navbar .logo.hidden-logo {
+    display: none;
+  }
+
+  .close-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .Navbar ul li {
+    display: none;
+  }
+
+  .Navbar ul li:last-child {
+    display: block;
+  }
+
+  .mobile-nav ul li a {
+    font-size: 35px;
+    font-weight: 500;
+    margin-left: 30px;
+  }
+
+  .menu-icon {
+    display: inline-block;
+    margin-right: 20px;
+  }
 }
