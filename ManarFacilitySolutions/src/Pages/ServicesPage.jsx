@@ -1,4 +1,4 @@
-import ServicesIntroSection from "../Components/ServicesPageSections/ServicesIntroSection/ServicesIntro";
+import ServicesIntroSection from "../ServicesIntro.jsx";
 
 function ServicesPage() {
   return (
