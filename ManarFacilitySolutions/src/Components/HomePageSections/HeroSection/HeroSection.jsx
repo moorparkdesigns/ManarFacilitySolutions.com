@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./HeroSection.css";
 
 // Define image sets for different screen sizes
@@ -75,7 +76,9 @@ function HeroSection() {
         </div>
       </div>
       <div className="img">
-        <div className="Book-today"></div>
+        <Link to="Book-Now">
+          <div className="Book-today"></div>
+        </Link>
       </div>
     </div>
   );
