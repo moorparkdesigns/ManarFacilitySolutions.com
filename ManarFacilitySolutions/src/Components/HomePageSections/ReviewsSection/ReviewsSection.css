@@ -111,3 +111,14 @@
   -webkit-user-select: none;
   -ms-user-select: none;
 }
+
+/* Styles for tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .reviews-section {
+    height: 672px;
+  }
+}
+
+/* Styles for phones */
+@media (max-width: 576px) {
+}

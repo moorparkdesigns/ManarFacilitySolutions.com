@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: IvyOra Text;
+  font-family: "Newsreader", serif;
 }
 
 .container {
@@ -36,4 +36,16 @@ p {
 
 /* Styles for phones */
 @media (max-width: 576px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 42px;
+  }
+
+  p {
+    font-size: 17px;
+  }
 }
