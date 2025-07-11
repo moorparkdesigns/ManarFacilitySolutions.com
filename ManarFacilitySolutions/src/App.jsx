@@ -4,6 +4,7 @@ import Navbar from "./Components/GlobalSection/Navbar/Navbar";
 import Footer from "./Components/GlobalSection/Footer/Footer";
 import HomePage from "./Pages/HomePage";
 import ServicesPage from "./Pages/ServicesPage";
+import AboutPage from "./Pages/AboutPage";
 
 function Layout({ children }) {
   return (
@@ -27,7 +28,7 @@ function App() {
         }
       />
       <Route path="/Services" element={<Layout>{<ServicesPage />}</Layout>} />
-      <Route path="/About" element={<Layout>{/*<About />*/}</Layout>} />
+      <Route path="/About" element={<Layout>{<AboutPage />}</Layout>} />
       <Route path="/Contact" element={<Layout>{/* <Contact />*/}</Layout>} />
     </Routes>
   );
