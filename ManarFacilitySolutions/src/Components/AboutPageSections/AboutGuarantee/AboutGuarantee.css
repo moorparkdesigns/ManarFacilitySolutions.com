@@ -60,13 +60,30 @@
   }
 
   .about-garantee .text .container .guarantee-item {
+    position: relative;
     padding: 46px;
-    border-bottom: 1px solid #174777;
-    width: 60%;
+    width: 100%;
+    box-sizing: border-box;
+
+    z-index: 1;
   }
 
-  .about-garantee .text .container .guarantee-item:last-child {
-    border: none;
+  /* Fake the bottom border */
+  .about-garantee .text .container .guarantee-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; /* or 80% if you want spacing on sides */
+    height: 0.5px;
+    background-color: #174777;
+    z-index: -1;
+  }
+
+  /* Remove it from the last one */
+  .about-garantee .text .container .guarantee-item:last-child::after {
+    display: none;
   }
 
   .about-garantee .text .container .guarantee-item p {
@@ -95,13 +112,28 @@
   }
 
   .about-garantee .text .container .guarantee-item {
+    position: relative;
     padding: 35px;
-    border-bottom: 1px solid #174777;
-    width: 61%;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
   }
 
-  .about-garantee .text .container .guarantee-item:last-child {
-    border: none;
+  .about-garantee .text .container .guarantee-item::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 0.5px;
+    background-color: #174777;
+    z-index: -1;
+  }
+
+  .about-garantee .text .container .guarantee-item:last-child::after {
+    display: none;
   }
 
   .about-garantee .text .container .guarantee-item p {
