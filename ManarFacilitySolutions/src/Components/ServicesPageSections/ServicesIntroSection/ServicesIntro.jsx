@@ -2,19 +2,19 @@ import "./ServicesIntro.css";
 
 const guarantees = [
   {
-    image: "/Images/Icons/Icon4.png",
+    image: "/Images/Icons/Icon7.png",
     title: "Commercial Cleaning",
     description:
       "This includes business-operating spaces such as offices, retail spaces and more.",
   },
   {
-    image: "/Images/Icons/Icon5.png",
+    image: "/Images/Icons/Icon8.png",
     title: "Residential Cleaning",
     description:
       "We clean all types of homes, from semi-detached homes and apartments to condos and houses.",
   },
   {
-    image: "/Images/Icons/Icon6.png",
+    image: "/Images/Icons/Icon9.png",
     title: "Specialized Cleaning",
     description:
       "Upon request, we offer specialized cleaning services such as carpet cleaning, window washing, etc.",
