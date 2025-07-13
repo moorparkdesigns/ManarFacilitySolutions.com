@@ -107,7 +107,7 @@ function HomePage() {
             priceRange: "$$",
             founder: {
               "@type": "Person",
-              name: "Husband and Wife Team",
+              name: "NOOR MIAN",
             },
           })}
         </script>
