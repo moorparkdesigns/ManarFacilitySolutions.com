@@ -31,7 +31,7 @@ function HomePage() {
       <Helmet key="home-page">
         {/* Primary Meta */}
         <title>
-          Home | Manar Facility Solutions - Cleaning Services in Gainesville FL
+          Affordable & Trusted Cleaning Services | Manar Facility Solutions
         </title>
         <meta
           name="description"
