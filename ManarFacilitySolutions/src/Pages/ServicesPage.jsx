@@ -9,7 +9,9 @@ function ServicesPage() {
     <>
       <Helmet key="services-page">
         {/* Primary Meta Tags */}
-        <title>Cleaning Services | Manar Facility Solutions</title>
+        <title>
+          Expert Commercial & Residential Cleaning | Manar Facility Solutions
+        </title>
         <meta
           name="description"
           content="Explore our commercial, residential, and specialized cleaning services. Serving Gainesville, Alachua County, and surrounding areas with trusted quality and care."

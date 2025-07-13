@@ -31,7 +31,10 @@ function AboutPage() {
     <>
       <Helmet key="about-page">
         {/* Primary Meta */}
-        <title>About Us | Manar Facility Solutions</title>
+        <title>
+          About Us | Excellence in Cleaning for Over 20 Years | Manar Facility
+          Solutions
+        </title>
         <meta
           name="description"
           content="Founded by a husband and wife team with over 20 years in the custodial field, Manar Facility Solutions offers top-tier residential and commercial cleaning services in Alachua County, Gainesville, Newberry, Archer, High Springs, and surrounding areas."
