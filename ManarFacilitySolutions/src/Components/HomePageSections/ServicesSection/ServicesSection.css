@@ -47,7 +47,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
   border-radius: 10px;
   width: 100%;
@@ -143,6 +143,10 @@
     margin-bottom: 20px;
   }
 
+  .ServicesSection .content div::before {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
   .ServicesSection .content .card-content {
     display: flex;
     flex-direction: column;
@@ -188,6 +192,10 @@
     width: 100%;
     display: block;
     margin-bottom: 10px;
+  }
+
+  .ServicesSection .content div::before {
+    background-color: rgba(0, 0, 0, 0);
   }
 
   .ServicesSection .content .card-content {

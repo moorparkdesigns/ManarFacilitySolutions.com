@@ -1,0 +1,145 @@
+.about-garantee {
+  text-align: center;
+}
+
+.about-garantee .heading {
+  margin: 80px 0;
+  width: 100%;
+}
+
+.about-garantee .heading p {
+  max-width: 495px;
+  margin: auto;
+  margin-top: 8px;
+}
+
+.about-garantee .text {
+  background-color: #eff3f8;
+  height: 379px;
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-garantee .text h1 {
+  margin-top: 8px;
+  font-size: 32px;
+}
+
+.about-garantee .text p {
+  margin-top: 15px;
+  max-width: 297px;
+}
+
+.about-garantee .text .container {
+  margin: auto;
+  display: flex;
+  width: 100%;
+  max-width: 1150px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Styles for tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .about-garantee .heading p {
+    max-width: 536px;
+  }
+
+  .about-garantee .text {
+    height: 752px;
+    width: 80%;
+    max-width: 716px;
+    margin: auto;
+    margin-bottom: 91px;
+  }
+
+  .about-garantee .text .container {
+    flex-direction: column;
+  }
+
+  .about-garantee .text .container .guarantee-item {
+    position: relative;
+    padding: 46px;
+    width: 100%;
+    box-sizing: border-box;
+
+    z-index: 1;
+  }
+
+  /* Fake the bottom border */
+  .about-garantee .text .container .guarantee-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; /* or 80% if you want spacing on sides */
+    height: 0.5px;
+    background-color: #174777;
+    z-index: -1;
+  }
+
+  /* Remove it from the last one */
+  .about-garantee .text .container .guarantee-item:last-child::after {
+    display: none;
+  }
+
+  .about-garantee .text .container .guarantee-item p {
+    max-width: 433px;
+    margin: auto;
+    margin-top: 15px;
+  }
+}
+
+/* Styles for phones */
+@media (max-width: 576px) {
+  .about-garantee .heading p {
+    width: 80%;
+  }
+
+  .about-garantee .text {
+    height: max-content;
+    width: 80%;
+    max-width: 716px;
+    margin: auto;
+    margin-bottom: 131px;
+  }
+
+  .about-garantee .text .container {
+    flex-direction: column;
+  }
+
+  .about-garantee .text .container .guarantee-item {
+    position: relative;
+    padding: 35px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
+  .about-garantee .text .container .guarantee-item::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 0.5px;
+    background-color: #174777;
+    z-index: -1;
+  }
+
+  .about-garantee .text .container .guarantee-item:last-child::after {
+    display: none;
+  }
+
+  .about-garantee .text .container .guarantee-item p {
+    width: 100%;
+    margin: auto;
+    margin-top: 15px;
+    font-size: 17px;
+  }
+}

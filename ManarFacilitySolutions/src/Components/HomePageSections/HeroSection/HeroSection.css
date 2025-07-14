@@ -9,6 +9,7 @@
   flex-direction: column;
   transition: background-image 1s ease-in-out;
   overflow: hidden;
+  min-height: 600px;
 }
 
 .heroSection::before {
@@ -36,15 +37,11 @@
   width: 50%;
   color: white;
   margin-bottom: 77px;
+  max-width: 571px;
 }
 
 .heroSection .text h1 {
-  max-width: 571px;
   margin-bottom: 8px;
-}
-
-.heroSection .text p {
-  max-width: 571px;
 }
 
 .heroSection .img {
@@ -92,7 +89,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 480px;
+  width: 440px;
   height: 254px;
   background-image: url(/Images/Back-ground-images/cta2.png);
   background-size: contain;
@@ -103,6 +100,7 @@
   opacity: 0;
   transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
   z-index: 2;
+  margin-bottom: -13px;
 }
 
 /* Hover effect */
@@ -113,4 +111,81 @@
 .heroSection .Book-today:hover::after {
   opacity: 1;
   transform: scale(1.15);
+}
+
+/* Styles for tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .heroSection .text {
+    width: 50%;
+    color: white;
+    margin-bottom: 65px;
+  }
+
+  .heroSection::before {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .heroSection .Book-today {
+    position: relative;
+    width: 370px;
+    height: 205px;
+    cursor: pointer;
+    overflow: visible;
+  }
+
+  .heroSection .Book-today::before {
+    width: 80%;
+    height: 224px;
+    margin-left: 75px;
+    margin-top: 10px;
+  }
+
+  .heroSection .Book-today::after {
+    width: 90%;
+    height: 95%;
+    margin-top: 40px;
+  }
+}
+
+/* Styles for phones */
+@media (max-width: 576px) {
+  .heroSection {
+    min-height: 840px;
+  }
+
+  .heroSection::before {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .heroSection .background-content {
+    width: 100%;
+    display: block;
+    margin-top: 329px;
+  }
+
+  .heroSection .text {
+    width: 85%;
+    max-width: none;
+  }
+
+  .heroSection .Book-today {
+    position: relative;
+    margin-right: -29px;
+    width: 370px;
+    height: 200px;
+    cursor: pointer;
+    overflow: visible;
+  }
+
+  .heroSection .Book-today::before {
+    width: 80%;
+    height: 175px;
+    margin-left: 45px;
+    margin-top: 30px;
+  }
+
+  .heroSection .Book-today::after {
+    width: 100%;
+    height: 100%;
+  }
 }
