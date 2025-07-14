@@ -3,6 +3,9 @@ import "./App.css";
 import Navbar from "./Components/GlobalSection/Navbar/Navbar";
 import Footer from "./Components/GlobalSection/Footer/Footer";
 import HomePage from "./Pages/HomePage";
+import BookNowPage from "./Pages/BookNowPage";
+import ContactPage from "./Pages/ContactPage";
+
 
 function Layout({ children }) {
   return (
@@ -27,7 +30,10 @@ function App() {
       />
       <Route path="/services" element={<Layout>{/*<Services />*/}</Layout>} />
       <Route path="/about" element={<Layout>{/*<About />*/}</Layout>} />
-      <Route path="/contact" element={<Layout>{/* <Contact />*/}</Layout>} />
+      <Route path="/contact" element={<Layout><ContactPage /></Layout>} ></Route>
+      <Route path="/book-now" element={<Layout> <BookNowPage />
+      </Layout>} />
+
     </Routes>
   );
 }

@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400..800;1,400..800&family=Wix+Madefor+Text:wght@400..800&display=swap');
+
+body,b, span, p, h1, h2, h3, h4, h5, h6, span, div, a {
+  font-family: "Wix Madefor Text", sans-serif;
+}
+.contactPage {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10rem 0px 20px 0px;
+  font-family: "Wix Madefor Text", sans-serif;
+}
+
+.head {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 500;
+  font-family: "Newsreader", serif;
+  margin: 0.5rem 0;
+}
+
+.intro {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 5px 10% 5% 10%;
+  font-weight: 400;
+  line-height: 1.8rem;
+}
+
+.contactInfoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.contactInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 3rem;
+  /* width: 100%; */
+}
+
+.left,
+.right {
+  flex: 1;
+  min-width: 250px;
+}
+
+.verticalDivider {
+  width: 1px;
+  background: #0e0c0c;
+  height: auto;
+  display: block;
+  align-items: center;
+}
+
+
+.left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.left li {
+  display: flex;
+  /* align-items: flex-end; */
+  align-self: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.left a {
+  color: #336699;
+  font-size: 1rem;
+}
+
+.right strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "Newsreader", serif;
+  font-size: 1.2rem;
+}
+
+.right p {
+  margin: 0.25rem 0;
+}
+
+.container {
+  background-color: #EFF3F8;
+  padding: 3rem;
+  border-radius: 5px;
+  max-width: 580px;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+label{
+    font-family: "Wix Madefor Text", sans-serif;
+    font-weight: 600;
+}
+
+.container b {
+  display: block;
+  /* text-align: center; */
+  margin-bottom: 0.5rem;
+  font-family: "Wix Madefor Text", sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  padding: 2% 0% 2% 0%;
+}
+
+.container p {
+  margin-bottom: 1.5rem;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Wix Madefor Text", sans-serif;
+}
+textarea{
+    width:100% !important
+}
+.formGroup select {
+  height: 48px;
+  background-color: white;
+  appearance: none;
+}
+
+.requiredStar {
+  color: red;
+}
+
+.contactForm button {
+  background-color: #0F3C69;
+  color: #fff;
+  font-family: "Newsreader", serif;
+  font-weight: 500;
+  font-style: italic;
+  padding: 0.75rem;
+  margin-top: 20px;
+  border: none;
+  border-radius: 1px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 50%;
+  max-width: 25%;
+  align-self: center;
+}
+
+.contactForm button:hover {
+  background-color: #174777;
+}
+
+/* New Code */
+.rowGroup {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.rowGroup .formGroup {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+ .getInTouch {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+@media (max-width: 700px) {
+  .rowGroup {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactInfo {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+  }
+
+  .horiDivider {
+  display: block;
+  border-top: 1.5px solid #222;
+  width: 80px;
+  margin: 1.5rem auto 1.5rem auto;
+}
+
+  .left ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .left li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  .icon {
+    margin-bottom: 0.5rem;
+  }
+
+  .left a, .left span {
+    text-align: center;
+    width: 100%;
+    word-break: break-word;
+  }
+
+  .tableHead,
+  .right strong {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Align hours of operation like a table */
+.hoursTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 350px;
+}
+
+.hoursTable > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.08rem;
+  font-family: "Wix Madefor Text", sans-serif;
+  width: 100%;
+}
+
+.hoursTable > div span:first-child {
+  text-align: left;
+  min-width: 90px;
+}
+
+.hoursTable > div span:last-child {
+  text-align: right;
+  min-width: 120px;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+
+  }
+
+ 
+  .tableHead{
+align-self: center !important;
+  }
+
+
+  .head {
+    font-size: 2rem;
+  }
+
+  .container h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro {
+    font-size: 1.0625rem;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    font-size: 0.9rem;
+  }
+
+  .contactForm button {
+    width: auto;
+    max-width: none;
+    align-self: flex-start;
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+.formToast {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0F3C69;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(15, 60, 105, 0.15);
+  animation: fadeInToast 0.5s;
+}
+
+@keyframes fadeInToast {
+  from { opacity: 0; transform: translateY(-20px) translateX(-50%);}
+  to { opacity: 1; transform: translateY(0) translateX(-50%);}
+}
+
+.fadeOut {
+  animation: fadeOutPage 0.7s forwards;
+}
+
+@keyframes fadeOutPage {
+  to {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}

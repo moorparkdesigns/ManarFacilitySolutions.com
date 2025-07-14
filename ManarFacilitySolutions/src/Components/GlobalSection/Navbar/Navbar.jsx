@@ -40,7 +40,7 @@ function Navbar() {
               <Link to="/About">About</Link>
             </li>
             <li>
-              <Link to="/Conact">Contact</Link>
+              <Link to="/Contact">Contact</Link>
             </li>
             <li>
               <a
