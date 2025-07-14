@@ -1,17 +1,16 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 
+
 import Navbar from "./Components/GlobalSection/Navbar/Navbar";
 import Footer from "./Components/GlobalSection/Footer/Footer";
 import ScrollToTop from "./Components/GlobalSection/ScrollToTop/ScrollToTop";
 
 import HomePage from "./Pages/HomePage";
-import BookNowPage from "./Pages/BookNowPage";
-import ContactPage from "./Pages/ContactPage";
-
 import ServicesPage from "./Pages/ServicesPage";
 import AboutPage from "./Pages/AboutPage";
 
+// Layout wrapper with Navbar and Footer
 // Layout wrapper with Navbar and Footer
 function Layout({ children }) {
   return (
