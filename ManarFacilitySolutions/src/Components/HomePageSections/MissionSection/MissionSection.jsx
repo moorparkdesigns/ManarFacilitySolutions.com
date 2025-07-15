@@ -1,40 +1,68 @@
 import { Link } from "react-router-dom";
 import "./MissionSection.css";
 
-function MissionSection() {
+function MissionSection({
+  img0,
+  title,
+  description,
+  button,
+  img1,
+  img2,
+  style,
+}) {
+  const isStyle2 = style === "style-2";
   return (
-    <div className="our-mission container-2">
-      <div>
-        <h1>Our mission</h1>
-        <p>
-          At Manar Facility Solutions, we offer high-quality cleaning services
-          while providing a strong foundation of trust and respect for our
-          customers. <br />
-          <br />
-          We have experience working with every home style, from apartments to
-          multi-family homes. Our core value is to provide you with 5-star
-          services and ensure that your every need is taken care of.
-          <br />
-          <br />
-          Schedule a cleaning for your personal of professional space today to
-          experience our 5-star services.
-        </p>
-        <Link to="/About">
-          <button>About Us</button>
-        </Link>
-      </div>
-      <div className="img">
-        <picture>
-          {/* Tablet image */}
-          <source
-            media="(max-width: 991px)"
-            srcSet="/Images/Back-ground-images/(4)-2.png"
-          />
-
-          {/* Default (desktop) image */}
-          <img src="/Images/Back-ground-images/4.jpg" alt="Our mission image" />
-        </picture>
-      </div>
+    <div className={`our-mission container-2 ${isStyle2 ? "style-2" : ""}`}>
+      {/* If style-2, reverse the order: image first, then text */}
+      {isStyle2 ? (
+        <>
+          <div className="img">
+            <picture>
+              <source
+                media="(min-width: 577px) and (max-width: 991px)"
+                srcSet={img1}
+              />
+              <img src={img2} alt="Our mission image" />
+            </picture>
+          </div>
+          <div className="text">
+            <div className="img-text">
+              {img0 && <img src={img0} alt="icon" />}
+              <h1>{title}</h1>
+            </div>
+            <p>{description}</p>
+            {button && (
+              <Link to="/About">
+                <button>About Us</button>
+              </Link>
+            )}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="text">
+            <div className="img-text">
+              {img0 && <img src={img0} alt="icon" />}
+              <h1>{title}</h1>
+            </div>
+            <p>{description}</p>
+            {button && (
+              <Link to="/About">
+                <button>About Us</button>
+              </Link>
+            )}
+          </div>
+          <div className="img">
+            <picture>
+              <source
+                media="(min-width: 577px) and (max-width: 991px)"
+                srcSet={img1}
+              />
+              <img src={img2} alt="Our mission image" />
+            </picture>
+          </div>
+        </>
+      )}
     </div>
   );
 }

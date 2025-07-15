@@ -1,37 +1,38 @@
-.services-intro {
+.about-garantee {
   text-align: center;
 }
 
-.services-intro .heading {
-  margin: 167px 0 80px 0;
+.about-garantee .heading {
+  margin: 80px 0;
   width: 100%;
 }
 
-.services-intro .heading p {
+.about-garantee .heading p {
   max-width: 495px;
   margin: auto;
   margin-top: 8px;
 }
 
-.services-intro .text {
+.about-garantee .text {
   background-color: #eff3f8;
   height: 379px;
+  margin-bottom: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.services-intro .text h1 {
+.about-garantee .text h1 {
   margin-top: 8px;
   font-size: 32px;
 }
 
-.services-intro .text p {
+.about-garantee .text p {
   margin-top: 15px;
   max-width: 297px;
 }
 
-.services-intro .text .container {
+.about-garantee .text .container {
   margin: auto;
   display: flex;
   width: 100%;
@@ -42,11 +43,11 @@
 
 /* Styles for tablets */
 @media (min-width: 577px) and (max-width: 991px) {
-  .services-intro .heading p {
+  .about-garantee .heading p {
     max-width: 536px;
   }
 
-  .services-intro .text {
+  .about-garantee .text {
     height: 752px;
     width: 80%;
     max-width: 716px;
@@ -54,20 +55,21 @@
     margin-bottom: 91px;
   }
 
-  .services-intro .text .container {
+  .about-garantee .text .container {
     flex-direction: column;
   }
 
-  .services-intro .text .container .guarantee-item {
+  .about-garantee .text .container .guarantee-item {
     position: relative;
     padding: 46px;
     width: 100%;
     box-sizing: border-box;
+
     z-index: 1;
   }
 
   /* Fake the bottom border */
-  .services-intro .text .container .guarantee-item::after {
+  .about-garantee .text .container .guarantee-item::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -80,11 +82,11 @@
   }
 
   /* Remove it from the last one */
-  .services-intro .text .container .guarantee-item:last-child::after {
+  .about-garantee .text .container .guarantee-item:last-child::after {
     display: none;
   }
 
-  .services-intro .text .container .guarantee-item p {
+  .about-garantee .text .container .guarantee-item p {
     max-width: 433px;
     margin: auto;
     margin-top: 15px;
@@ -93,11 +95,11 @@
 
 /* Styles for phones */
 @media (max-width: 576px) {
-  .services-intro .heading p {
+  .about-garantee .heading p {
     width: 80%;
   }
 
-  .services-intro .text {
+  .about-garantee .text {
     height: max-content;
     width: 80%;
     max-width: 716px;
@@ -105,11 +107,11 @@
     margin-bottom: 131px;
   }
 
-  .services-intro .text .container {
+  .about-garantee .text .container {
     flex-direction: column;
   }
 
-  .services-intro .text .container .guarantee-item {
+  .about-garantee .text .container .guarantee-item {
     position: relative;
     padding: 35px;
     width: 100%;
@@ -117,7 +119,7 @@
     z-index: 1;
   }
 
-  .services-intro .text .container .guarantee-item::after {
+  .about-garantee .text .container .guarantee-item::after {
     pointer-events: none;
     content: "";
     position: absolute;
@@ -130,11 +132,11 @@
     z-index: -1;
   }
 
-  .services-intro .text .container .guarantee-item:last-child::after {
+  .about-garantee .text .container .guarantee-item:last-child::after {
     display: none;
   }
 
-  .services-intro .text .container .guarantee-item p {
+  .about-garantee .text .container .guarantee-item p {
     width: 100%;
     margin: auto;
     margin-top: 15px;

@@ -1,10 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
+
 import Navbar from "./Components/GlobalSection/Navbar/Navbar";
 import Footer from "./Components/GlobalSection/Footer/Footer";
+import ScrollToTop from "./Components/GlobalSection/ScrollToTop/ScrollToTop";
+
 import HomePage from "./Pages/HomePage";
 import ServicesPage from "./Pages/ServicesPage";
+import AboutPage from "./Pages/AboutPage";
 
+// Layout wrapper with Navbar and Footer
 function Layout({ children }) {
   return (
     <>
@@ -16,20 +21,44 @@ function Layout({ children }) {
 }
 
 function App() {
+  const location = useLocation();
+
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Layout>
-            <HomePage />
-          </Layout>
-        }
-      />
-      <Route path="/Services" element={<Layout>{<ServicesPage />}</Layout>} />
-      <Route path="/About" element={<Layout>{/*<About />*/}</Layout>} />
-      <Route path="/Contact" element={<Layout>{/* <Contact />*/}</Layout>} />
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <Layout key={location.pathname}>
+              <HomePage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/Services"
+          element={
+            <Layout key={location.pathname}>
+              <ServicesPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/About"
+          element={
+            <Layout key={location.pathname}>
+              <AboutPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/Contact"
+          element={
+            <Layout key={location.pathname}>{/* <ContactPage /> */}</Layout>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 

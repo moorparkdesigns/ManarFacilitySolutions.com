@@ -38,10 +38,10 @@
 }
 
 /* Logo styles */
-.Navbar .logo {
+.Navbar .logo img {
   transition: transform 0.3s ease;
 }
-.Navbar .logo:hover {
+.Navbar .logo img:hover {
   transform: scale(1.2);
 }
 .Navbar .logo img {
@@ -112,7 +112,7 @@ body.menu-open {
   position: fixed;
   top: 0;
   left: 0;
-  transform: translateX(-100%);
+  transform: translateX(-101%);
   width: 100vw;
   height: 100vh;
   background-color: #e7ddd7;
@@ -241,6 +241,10 @@ body.menu-open {
     display: inline-block;
     margin-right: 20px;
   }
+
+  .Navbar .logo img:hover {
+    transform: none;
+  }
 }
 
 /* Small screens */
@@ -274,5 +278,9 @@ body.menu-open {
   .menu-icon {
     display: inline-block;
     margin-right: 20px;
+  }
+
+  .Navbar .logo img:hover {
+    transform: none;
   }
 }
