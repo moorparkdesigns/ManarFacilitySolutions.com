@@ -1,7 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 
-
 import Navbar from "./Components/GlobalSection/Navbar/Navbar";
 import Footer from "./Components/GlobalSection/Footer/Footer";
 import ScrollToTop from "./Components/GlobalSection/ScrollToTop/ScrollToTop";
@@ -9,6 +8,8 @@ import ScrollToTop from "./Components/GlobalSection/ScrollToTop/ScrollToTop";
 import HomePage from "./Pages/HomePage";
 import ServicesPage from "./Pages/ServicesPage";
 import AboutPage from "./Pages/AboutPage";
+import BookNowPage from "./Pages/BookNowPage";
+import ContactPage from "./Pages/ContactPage";
 
 // Layout wrapper with Navbar and Footer
 // Layout wrapper with Navbar and Footer
@@ -56,13 +57,21 @@ function App() {
         <Route
           path="/Contact"
           element={
-            <Layout key={location.pathname}><ContactPagePage /> </Layout>} ></Route>
-      <Route path="/book-now" element={<Layout> <BookNowPage />
-      </Layout>
+            <Layout key={location.pathname}>
+              <ContactPage />{" "}
+            </Layout>
+          }
+        ></Route>
+        <Route
+          path="/book-now"
+          element={
+            <Layout>
+              {" "}
+              <BookNowPage />
+            </Layout>
           }
         />
-  
-    </Routes>
+      </Routes>
     </>
   );
 }
