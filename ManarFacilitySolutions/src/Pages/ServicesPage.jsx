@@ -1,8 +1,78 @@
 import { Helmet } from "react-helmet-async";
 import ServicesIntro from "../Components/ServicesPageSections/ServicesIntroSection/ServicesIntro.jsx";
 import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection.jsx";
+import MissionSection from "../Components/HomePageSections/MissionSection/MissionSection.jsx";
 
 const img2 = "/Images/Back-ground-images/5.jpg"; // use a representative image
+
+const missionSections = {
+  commercial: {
+    title: "Commercial",
+    description: (
+      <>
+        We offer general cleaning services to a variety of commercial and
+        business-operating spaces, including offices, retail spaces and more.
+        <br />
+        <br />
+        Whether you want to fix an area of your retail space, deep clean an
+        office or add value to your commercial spaces through upgrades, our team
+        is eager to help you tackle your professional cleaning to-do list.
+        <br />
+        <br />
+        Based in Gainesville, Florida, we offer services within the greater
+        Alachua County and surrounding areas.
+      </>
+    ),
+    img0: "/Images/Icons/Icon7.png",
+    img1: "/Images/Back-ground-images/(9)-2.png",
+    img2: "/Images/Back-ground-images/9.jpg",
+  },
+  residential: {
+    title: "Residential ",
+    description: (
+      <>
+        Whether you’re moving in, moving out, or simply in need of a deep clean,
+        we offer a variety of handyman services for all your residential needs,
+        including general repairs, tile work and cabinetry.
+        <br />
+        <br />
+        We can paint and pressure wash surfaces, deep clean household
+        appliances, install bulbs and fans and check for squeaky doors or
+        windows. We’ll even hang up your TVs and Art, and assemble that
+        bookcase!
+        <br />
+        <br />
+        Call us today to learn more about our residential cleaning services or
+        book a cleaning below.
+      </>
+    ),
+    img0: "/Images/Icons/Icon8.png",
+    img1: "/Images/Back-ground-images/(1)-2.png",
+    img2: "/Images/Back-ground-images/1.jpg",
+  },
+  specialized: {
+    title: "Specialized",
+    description: (
+      <>
+        Descriptions above don’t exactly fit your needs? We also offer
+        specialized cleaning services upon request, such as upholstry cleaning,
+        window washing and more.
+        <br />
+        <br />
+        Looking to spice up your outdoor lawn or add curb appeal to your home or
+        commercial space? We also offer landscape maintenance services as well.
+        We can help with planting, mowing, edging, and hardscaping.
+        <br />
+        <br />
+        Meet your maintenance goals with us today! Call us to learn more about
+        our services or book a cleaning below.
+      </>
+    ),
+    img0: "/Images/Icons/Icon9.png",
+    img1: "/Images/Back-ground-images/(7)-2.png",
+    img2: "/Images/Back-ground-images/7.jpg",
+  },
+};
 
 function ServicesPage() {
   return (
@@ -99,8 +169,18 @@ function ServicesPage() {
           })}
         </script>
       </Helmet>
-
       <ServicesIntro />
+      {Object.values(missionSections).map((section, index) => (
+        <MissionSection
+          key={index}
+          img0={section.img0}
+          title={section.title}
+          description={section.description}
+          img1={section.img1}
+          img2={section.img2}
+          style={index === 1 ? "style-2" : ""}
+        />
+      ))}
       <CtaSection />
     </>
   );
