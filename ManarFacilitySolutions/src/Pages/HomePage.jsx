@@ -6,25 +6,28 @@ import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection";
 import { Helmet } from "react-helmet-async";
 
 function HomePage() {
-  const missionTitle = "Our mission";
-  const missionDescription = (
-    <>
-      At Manar Facility Solutions, we offer high-quality cleaning services while
-      providing a strong foundation of trust and respect for our customers.
-      <br />
-      <br />
-      We have experience working with every home style, from apartments to
-      multi-family homes. Our core value is to provide you with 5-star services
-      and ensure that your every need is taken care of.
-      <br />
-      <br />
-      Schedule a cleaning for your personal or professional space today to
-      experience our 5-star services.
-    </>
-  );
-
-  const img1 = "/Images/Back-ground-images/(4)-2.png";
-  const img2 = "/Images/Back-ground-images/4.jpg";
+  const missionContent = {
+    title: "Our mission",
+    description: (
+      <>
+        At Manar Facility Solutions, we offer high-quality cleaning services
+        while providing a strong foundation of trust and respect for our
+        customers.
+        <br />
+        <br />
+        We have experience working with every home style, from apartments to
+        multi-family homes. Our core value is to provide you with 5-star
+        services and ensure that your every need is taken care of.
+        <br />
+        <br />
+        Schedule a cleaning for your personal or professional space today to
+        experience our 5-star services.
+      </>
+    ),
+    img1: "/Images/Back-ground-images/(4)-2.png",
+    img2: "/Images/Back-ground-images/4.jpg",
+    button: true,
+  };
 
   return (
     <>
@@ -52,7 +55,7 @@ function HomePage() {
           property="og:description"
           content="Top-rated cleaning company serving Gainesville, Alachua, Newberry, and more. Trusted professionals for homes and businesses."
         />
-        <meta property="og:image" content={img2} />
+        <meta property="og:image" content={missionContent.img2} />
         <meta
           property="og:url"
           content="https://www.manarfacilitysolutions.com"
@@ -69,10 +72,10 @@ function HomePage() {
           name="twitter:description"
           content="Experienced, professional cleaning team for homes and businesses across Alachua County. Book a free consultation today!"
         />
-        <meta name="twitter:image" content={img2} />
+        <meta name="twitter:image" content={missionContent.img2} />
 
         {/* Preload Image */}
-        <link rel="preload" as="image" href={img2} />
+        <link rel="preload" as="image" href={missionContent.img2} />
 
         {/* Schema JSON-LD */}
         <script type="application/ld+json">
@@ -80,7 +83,8 @@ function HomePage() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Manar Facility Solutions",
-            image: "https://www.manarfacilitysolutions.com" + img2,
+            image:
+              "https://www.manarfacilitysolutions.com" + missionContent.img2,
             address: {
               "@type": "PostalAddress",
               streetAddress: "5145 SW 75th St #348",
@@ -114,11 +118,11 @@ function HomePage() {
       </Helmet>
       <HeroSection />
       <MissionSection
-        title={missionTitle}
-        description={missionDescription}
+        title={missionContent.missionTitle}
+        description={missionContent.missionDescription}
         button={true}
-        img1={img1}
-        img2={img2}
+        img1={missionContent.img1}
+        img2={missionContent.img2}
       />
       <ServicesSection />
       <ReviewsSection />

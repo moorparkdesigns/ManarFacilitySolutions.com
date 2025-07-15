@@ -5,26 +5,27 @@ import MissionSection from "../Components/HomePageSections/MissionSection/Missio
 import AboutGuarantee from "../Components/AboutPageSections/AboutGuarantee/AboutGuarantee";
 import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection";
 
-const aboutTitle = "Our story";
-const aboutDescription = (
-  <>
-    Our company, Manar Facility Solutions, was founded by a husband and wife
-    team who has been in the custodial field for over 20 years.
-    <br />
-    <br />
-    Manar Facility Solutions works with an incredible team of hard-working home
-    and office cleaners who simply know how to clean– and do it exceedingly
-    well.
-    <br />
-    <br />
-    <Link to="/Book-Now">Book a cleaning</Link> with us today– we’re passionate
-    about providing the utmost customer service and cleaning solutions for
-    residents and businesses in Alachua.
-  </>
-);
-
-const img1 = "/Images/Back-ground-images/(9)-2.png";
-const img2 = "/Images/Back-ground-images/9.jpg";
+const aboutContent = {
+  title: "Our story",
+  description: (
+    <>
+      Our company, Manar Facility Solutions, was founded by a husband and wife
+      team who has been in the custodial field for over 20 years.
+      <br />
+      <br />
+      Manar Facility Solutions works with an incredible team of hard-working
+      home and office cleaners who simply know how to clean– and do it
+      exceedingly well.
+      <br />
+      <br />
+      <Link to="/Book-Now">Book a cleaning</Link> with us today– we’re
+      passionate about providing the utmost customer service and cleaning
+      solutions for residents and businesses in Alachua.
+    </>
+  ),
+  img1: "/Images/Back-ground-images/(9)-2.png",
+  img2: "/Images/Back-ground-images/9.jpg",
+};
 
 function AboutPage() {
   return (
@@ -54,7 +55,7 @@ function AboutPage() {
           property="og:description"
           content="Professional cleaning services in Gainesville, Alachua, Newberry, Archer, and surrounding FL cities. Learn more about our story and team."
         />
-        <meta property="og:image" content={img2} />
+        <meta property="og:image" content={aboutContent.img2} />
         <meta
           property="og:url"
           content="https://manarfacilitysolutions.com/About"
@@ -71,10 +72,10 @@ function AboutPage() {
           name="twitter:description"
           content="Trusted cleaning experts in Alachua County and nearby cities. Manar Facility Solutions delivers professional home and office cleaning services."
         />
-        <meta name="twitter:image" content={img2} />
+        <meta name="twitter:image" content={aboutContent.img2} />
 
         {/* Preload important image */}
-        <link rel="preload" as="image" href={img2} />
+        <link rel="preload" as="image" href={aboutContent.img2} />
 
         {/* Schema JSON-LD */}
         <script type="application/ld+json">
@@ -82,7 +83,7 @@ function AboutPage() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Manar Facility Solutions",
-            image: "https://www.manarfacilitysolutions.com" + img2,
+            image: "https://www.manarfacilitysolutions.com" + aboutContent.img2,
             address: {
               "@type": "PostalAddress",
               streetAddress: "5145 SW 75th St #348",
@@ -117,10 +118,10 @@ function AboutPage() {
 
       <AboutIntro />
       <MissionSection
-        title={aboutTitle}
-        description={aboutDescription}
-        img1={img1}
-        img2={img2}
+        title={aboutContent.aboutTitle}
+        description={aboutContent.aboutDescription}
+        img1={aboutContent.img1}
+        img2={aboutContent.img2}
       />
       <AboutGuarantee />
       <CtaSection />
