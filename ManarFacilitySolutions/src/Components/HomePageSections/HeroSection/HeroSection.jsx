@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./HeroSection.css";
 
-// Define image sets for different screen sizes
+// Arrays holding background image URLs for different screen sizes
 const desktopImages = [
   "/Images/Back-ground-images/1.jpg",
   "/Images/Back-ground-images/2.jpg",
@@ -24,44 +24,51 @@ const mobileImages = [
   "/Images/Back-ground-images/4-mobile.png",
 ];
 
-// Helper function to determine which image set to use
+// Helper function to select which set of images to use based on window width
 const getImageSet = () => {
-  const width = window.innerWidth;
+  const width = window.innerWidth; // Get current viewport width
   if (width < 768) {
+    // Mobile devices (less than 768px wide)
     return mobileImages;
   } else if (width < 1024) {
+    // Tablets (between 768px and 1023px)
     return tabletImages;
   } else {
+    // Desktop (1024px and above)
     return desktopImages;
   }
 };
 
 function HeroSection() {
+  // State to keep track of the current image index for background rotation
   const [currentIndex, setCurrentIndex] = useState(0);
+  // State to store the current set of images depending on screen size
   const [imageSet, setImageSet] = useState(getImageSet());
 
-  // Update image set on screen resize
+  // Effect hook to listen for window resize events and update image set accordingly
   useEffect(() => {
     const handleResize = () => {
-      setImageSet(getImageSet());
+      setImageSet(getImageSet()); // Update image set based on new window width
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize); // Add event listener on mount
+    return () => window.removeEventListener("resize", handleResize); // Clean up on unmount
   }, []);
 
-  // Rotate background images
+  // Effect hook to rotate the background images every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
+      // Increment currentIndex, loop back to 0 when reaching the end of imageSet
       setCurrentIndex((prevIndex) => (prevIndex + 1) % imageSet.length);
-    }, 5000); // Change every 5 seconds
+    }, 5000); // Interval set to 5000ms (5 seconds)
 
-    return () => clearInterval(interval);
-  }, [imageSet]);
+    return () => clearInterval(interval); // Clear interval on cleanup to prevent memory leaks
+  }, [imageSet]); // Re-run effect if imageSet changes (e.g., on window resize)
 
   return (
     <div
       className="heroSection"
+      // Set background image dynamically using current image from imageSet
       style={{ backgroundImage: `url(${imageSet[currentIndex]})` }}
     >
       <div className="container background-content">
@@ -75,6 +82,8 @@ function HeroSection() {
           </p>
         </div>
       </div>
+
+      {/* Link wrapping a div styled as a "Book today" button */}
       <div className="img">
         <Link to="Book-Now">
           <div className="Book-today"></div>

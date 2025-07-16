@@ -3,8 +3,10 @@ import ServicesIntro from "../Components/ServicesPageSections/ServicesIntroSecti
 import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection.jsx";
 import MissionSection from "../Components/HomePageSections/MissionSection/MissionSection.jsx";
 
-const img2 = "/Images/Back-ground-images/5.jpg"; // use a representative image
+// Representative image used for SEO meta tags and social previews
+const img2 = "/Images/Back-ground-images/5.jpg";
 
+// Object containing content data for each services category section
 const missionSections = {
   commercial: {
     title: "Commercial",
@@ -23,9 +25,9 @@ const missionSections = {
         Alachua County and surrounding areas.
       </>
     ),
-    img0: "/Images/Icons/Icon7.png",
-    img1: "/Images/Back-ground-images/(9)-2.png",
-    img2: "/Images/Back-ground-images/9.jpg",
+    img0: "/Images/Icons/Icon7.png", // Icon representing commercial cleaning
+    img1: "/Images/Back-ground-images/(9)-2.png", // Supporting image 1
+    img2: "/Images/Back-ground-images/9.jpg", // Supporting image 2 for display and SEO
   },
   residential: {
     title: "Residential ",
@@ -46,9 +48,9 @@ const missionSections = {
         book a cleaning below.
       </>
     ),
-    img0: "/Images/Icons/Icon8.png",
-    img1: "/Images/Back-ground-images/(1)-2.png",
-    img2: "/Images/Back-ground-images/1.jpg",
+    img0: "/Images/Icons/Icon8.png", // Icon representing residential cleaning
+    img1: "/Images/Back-ground-images/(1)-2.png", // Supporting image 1
+    img2: "/Images/Back-ground-images/1.jpg", // Supporting image 2
   },
   specialized: {
     title: "Specialized",
@@ -68,17 +70,18 @@ const missionSections = {
         our services or book a cleaning below.
       </>
     ),
-    img0: "/Images/Icons/Icon9.png",
-    img1: "/Images/Back-ground-images/(7)-2.png",
-    img2: "/Images/Back-ground-images/7.jpg",
+    img0: "/Images/Icons/Icon9.png", // Icon representing specialized cleaning
+    img1: "/Images/Back-ground-images/(7)-2.png", // Supporting image 1
+    img2: "/Images/Back-ground-images/7.jpg", // Supporting image 2
   },
 };
 
 function ServicesPage() {
   return (
     <>
+      {/* SEO metadata for the Services page */}
       <Helmet key="services-page">
-        {/* Primary Meta Tags */}
+        {/* Primary meta tags */}
         <title>
           Expert Commercial & Residential Cleaning | Manar Facility Solutions
         </title>
@@ -95,7 +98,7 @@ function ServicesPage() {
           href="https://manarfacilitysolutions.com/Services"
         />
 
-        {/* Open Graph / Facebook */}
+        {/* Open Graph tags for social sharing */}
         <meta
           property="og:title"
           content="Cleaning Services | Manar Facility Solutions"
@@ -111,7 +114,7 @@ function ServicesPage() {
         />
         <meta property="og:type" content="website" />
 
-        {/* Twitter */}
+        {/* Twitter card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -123,10 +126,10 @@ function ServicesPage() {
         />
         <meta name="twitter:image" content={img2} />
 
-        {/* Preload key image */}
+        {/* Preload the key image for performance */}
         <link rel="preload" as="image" href={img2} />
 
-        {/* Structured Data (Schema) */}
+        {/* JSON-LD structured data describing the service and provider */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -169,18 +172,24 @@ function ServicesPage() {
           })}
         </script>
       </Helmet>
+
+      {/* Render the introductory section for services */}
       <ServicesIntro />
+
+      {/* Dynamically render MissionSection for each service category */}
       {Object.values(missionSections).map((section, index) => (
         <MissionSection
           key={index}
-          img0={section.img0}
-          title={section.title}
-          description={section.description}
-          img1={section.img1}
-          img2={section.img2}
-          style={index === 1 ? "style-2" : ""}
+          img0={section.img0} // Icon for the service type
+          title={section.title} // Section title (Commercial, Residential, Specialized)
+          description={section.description} // JSX description content
+          img1={section.img1} // Supporting image 1
+          img2={section.img2} // Supporting image 2 (used also for SEO)
+          style={index === 1 ? "style-2" : ""} // Alternate style for the middle section
         />
       ))}
+
+      {/* Call to action section to encourage booking */}
       <CtaSection />
     </>
   );

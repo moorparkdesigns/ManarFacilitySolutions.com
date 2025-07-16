@@ -1,5 +1,6 @@
 import "./AboutGuarantee.css";
 
+// Array of guarantee items with image, title, and description
 const guarantees = [
   {
     image: "/Images/Icons/Icon4.png",
@@ -23,7 +24,9 @@ const guarantees = [
 
 function AboutGuarantee() {
   return (
+    // Wrapper for the guarantee section
     <div className="about-garantee">
+      {/* Heading section with title and intro paragraph */}
       <div className="heading">
         <h1>Our guarantees</h1>
         <p>
@@ -32,12 +35,17 @@ function AboutGuarantee() {
         </p>
       </div>
 
+      {/* Container for guarantee items */}
       <div className="text">
         <div className="container">
+          {/* Map over guarantees array to render each guarantee */}
           {guarantees.map((item, index) => (
             <div className="guarantee-item" key={index}>
+              {/* Guarantee icon */}
               <img src={item.image} alt={item.title} />
+              {/* Guarantee title */}
               <h1>{item.title}</h1>
+              {/* Guarantee description */}
               <p>{item.description}</p>
             </div>
           ))}
