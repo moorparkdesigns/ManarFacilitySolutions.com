@@ -2,7 +2,7 @@
 
 A responsive, modern business website built using **React**, **Vite**, and **React Router**. This application showcases services, company information, and allows users to get in touch or book a service online.
 
-[![Live Site](https://img.shields.io/badge/Live_Demo-Visit-brightgreen)](https://www.manarfacilitysolutions.com)
+[![Live Site](https://img.shields.io/badge/Live_Site-Visit-brightgreen)](https://www.manarfacilitysolutions.com)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ---
