@@ -24,6 +24,16 @@
   text-align: end;
   font-size: 17px;
 }
+
+.footer .container .content span a {
+  color: #1a60a5;
+  text-decoration: none;
+}
+
+.footer .container .content span a:hover {
+  text-decoration: underline;
+}
+
 .footer .container .content span ul {
   list-style: none;
 }
