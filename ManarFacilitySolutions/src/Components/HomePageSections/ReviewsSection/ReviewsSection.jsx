@@ -1,6 +1,10 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import "./ReviewsSection.css";
 
+// Import star icon image
+import StarIcon from "../../../assets/Icons/Star.png";
+
+// Sample review data array with name, rating, and review text
 const reviewsData = [
   {
     name: "Dan B.",
@@ -14,7 +18,7 @@ const reviewsData = [
     name: "Ashley C.",
     rating: 5,
     text: `We hired MANAR Home Services to spruce up our front yard and 
-    all I can say is WOW! Our curb appeal has tripled since they came 
+    all I can say is WOW! Our curb appeal has tripled since they came  
     in and refreshed our yard. They are definitely our go-to for yard 
     work. Kind and professional. 10/10 stars!`,
   },
@@ -75,30 +79,129 @@ const reviewsData = [
 ];
 
 function ReviewsSection() {
+  // Reference to the carousel container div, used for scrolling manipulation
   const carouselRef = useRef(null);
+  // Ref to track whether user is currently dragging (for mouse/touch drag scrolling)
   const isDragging = useRef(false);
+  // Ref to store initial pointer X position on drag start
   const startX = useRef(0);
+  // Ref to store carousel's scrollLeft value at drag start
   const scrollLeft = useRef(0);
 
+  // To create an endless loop effect, duplicate the reviews array 3 times
+  const loopedReviews = [...reviewsData, ...reviewsData, ...reviewsData];
+  // The middle index to start showing (center) in the duplicated list
+  const middleIndex = reviewsData.length;
+
+  // On component mount, set initial scroll position to the middle of the duplicated reviews
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    // Get width of one review card + 20px gap between cards
+    const card = carousel.querySelector(".review");
+    if (card) {
+      const cardWidth = card.offsetWidth + 20;
+      // Set scrollLeft to middleIndex * cardWidth to center the carousel
+      carousel.scrollLeft = cardWidth * middleIndex;
+    }
+  }, []);
+
+  // Function to handle scroll event for endless loop effect
+  const handleScroll = () => {
+    const carousel = carouselRef.current;
+    const card = carousel?.querySelector(".review");
+    if (!carousel || !card) return;
+
+    const cardWidth = card.offsetWidth + 20; // Card width + margin
+    const totalWidth = cardWidth * loopedReviews.length; // Total scrollable width
+    const visibleWidth = carousel.offsetWidth; // Visible carousel width
+    const left = carousel.scrollLeft; // Current scroll position
+    const threshold = cardWidth * reviewsData.length; // One full set width
+
+    // If scrolled too far to the left, jump ahead by one set width to loop
+    if (left <= threshold) {
+      carousel.scrollLeft = left + threshold;
+    }
+    // If scrolled too far to the right, jump back by one set width to loop
+    else if (left + visibleWidth >= totalWidth - threshold) {
+      carousel.scrollLeft = left - threshold;
+    }
+  };
+
+  // Function to add visual effect on scroll: highlights the card centered in view
+  const handleScrollEffect = () => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    // Get all review cards
+    const cards = carousel.querySelectorAll(".review");
+    // Calculate center X coordinate of the visible carousel area
+    const centerX = carousel.offsetWidth / 2;
+
+    cards.forEach((card) => {
+      const box = card.getBoundingClientRect();
+      // Calculate center X position of the card relative to viewport
+      const cardCenter = box.left + box.width / 2;
+      const distanceToCenter = Math.abs(centerX - cardCenter);
+
+      // If card's center is close enough to carousel center, mark as active
+      if (distanceToCenter < box.width / 2) {
+        card.classList.add("review--center");
+        card.classList.remove("review--side");
+      } else {
+        // Otherwise mark as side card (smaller, less prominent)
+        card.classList.remove("review--center");
+        card.classList.add("review--side");
+      }
+    });
+  };
+
+  // Setup scroll event listener on mount for continuous effect updates
+  useEffect(() => {
+    const node = carouselRef.current;
+    if (!node) return;
+
+    // Combined scroll handler calls both looping and visual effects functions
+    const combinedScrollHandler = () => {
+      handleScroll();
+      handleScrollEffect();
+    };
+
+    node.addEventListener("scroll", combinedScrollHandler);
+    handleScrollEffect(); // Initial highlight of center card
+
+    // Cleanup event listener on unmount
+    return () => node.removeEventListener("scroll", combinedScrollHandler);
+  }, []);
+
+  // Mouse / touch drag handlers for dragging the carousel horizontally
+
+  // When mouse/touch drag starts, set dragging state and initial positions
   const handleMouseDown = (e) => {
     isDragging.current = true;
     startX.current = e.pageX - carouselRef.current.offsetLeft;
     scrollLeft.current = carouselRef.current.scrollLeft;
   };
 
+  // On mouse leave, stop dragging to prevent unwanted scrolling
   const handleMouseLeave = () => {
     isDragging.current = false;
   };
 
+  // On mouse up, stop dragging
   const handleMouseUp = () => {
     isDragging.current = false;
   };
 
+  // While dragging, calculate how far the pointer has moved and scroll carousel accordingly
   const handleMouseMove = (e) => {
     if (!isDragging.current) return;
-    e.preventDefault();
+    if (e && typeof e.preventDefault === "function") {
+      e.preventDefault(); // Prevent default to avoid unwanted selections
+    }
     const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5;
+    const walk = (x - startX.current) * 1.5; // Multiplied to increase scroll speed
     carouselRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
@@ -110,36 +213,36 @@ function ReviewsSection() {
       </div>
 
       <div className="carousel-container">
-        <div className="carousel-viewport">
-          <div
-            className="carousel-viewport"
-            ref={carouselRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            onTouchStart={(e) => handleMouseDown(e.touches[0])}
-            onTouchMove={(e) => handleMouseMove(e.touches[0])}
-            onTouchEnd={handleMouseUp}
-          >
-            <div className="reviews-track">
-              {reviewsData.map((review, index) => (
-                <div className="review" key={index}>
-                  <div className="stars">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <img
-                        key={i}
-                        src="/Images/Icons/Star.png"
-                        alt="star"
-                        className="star-icon"
-                      />
-                    ))}
-                  </div>
-                  <p>“{review.text}”</p>
-                  <span>{review.name}</span>
+        <div
+          className="carousel-viewport"
+          ref={carouselRef}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onTouchStart={(e) => handleMouseDown(e.touches[0])}
+          onTouchMove={(e) => handleMouseMove(e.touches[0])}
+          onTouchEnd={handleMouseUp}
+        >
+          <div className="reviews-track">
+            {/* Map over duplicated reviews to render cards continuously */}
+            {loopedReviews.map((review, index) => (
+              <div className="review" key={index}>
+                <div className="stars">
+                  {/* Render stars based on rating */}
+                  {[...Array(review.rating)].map((_, i) => (
+                    <img
+                      key={i}
+                      src={StarIcon}
+                      alt="star"
+                      className="star-icon"
+                    />
+                  ))}
                 </div>
-              ))}
-            </div>
+                <p>“{review.text}”</p>
+                <span>{review.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
