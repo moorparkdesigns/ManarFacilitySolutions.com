@@ -5,6 +5,10 @@ import MissionSection from "../Components/HomePageSections/MissionSection/Missio
 import AboutGuarantee from "../Components/AboutPageSections/AboutGuarantee/AboutGuarantee";
 import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection";
 
+// Imported images used in aboutContent
+import Img9_2 from "../assets/Back-ground-images/(9)-2.png"; // Image for responsive use in MissionSection
+import Img9 from "../assets/Back-ground-images/9.jpg"; // Main image for SEO/social meta tags
+
 // Content data used in the page, including title, description (with JSX), and images
 const aboutContent = {
   title: "Our story",
@@ -24,8 +28,8 @@ const aboutContent = {
       solutions for residents and businesses in Alachua.
     </>
   ),
-  img1: "/Images/Back-ground-images/(9)-2.png", // Image for responsive use in MissionSection
-  img2: "/Images/Back-ground-images/9.jpg", // Main image for SEO/social meta tags
+  img1: Img9_2, // Image for responsive use in MissionSection
+  img2: Img9, // Main image for SEO/social meta tags
 };
 
 function AboutPage() {

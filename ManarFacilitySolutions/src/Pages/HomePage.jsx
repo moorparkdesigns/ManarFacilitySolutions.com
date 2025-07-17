@@ -5,6 +5,10 @@ import ReviewsSection from "../Components/HomePageSections/ReviewsSection/Review
 import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection";
 import { Helmet } from "react-helmet-async";
 
+// Imported images used in mission section
+import Img4_2 from "../assets/Back-ground-images/(4)-2.png"; // Responsive image variant 1
+import Img4 from "../assets/Back-ground-images/4.jpg"; // Main image for SEO/social and display
+
 function HomePage() {
   // Content data for the MissionSection with JSX description and images
   const missionContent = {
@@ -25,8 +29,8 @@ function HomePage() {
         experience our 5-star services.
       </>
     ),
-    img1: "/Images/Back-ground-images/(4)-2.png", // Responsive image variant 1
-    img2: "/Images/Back-ground-images/4.jpg", // Main image for SEO/social and display
+    img1: Img4_2, // Responsive image variant 1
+    img2: Img4, // Main image for SEO/social and display
     button: true, // Show button in MissionSection
   };
 

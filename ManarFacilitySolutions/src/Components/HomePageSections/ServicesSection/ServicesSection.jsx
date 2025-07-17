@@ -2,35 +2,52 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ServicesSection.css";
 
+// Importing service icons and background images
+import Icon1 from "../../../assets/Icons/Icon1.png";
+import Icon2 from "../../../assets/Icons/Icon2.png";
+import Icon3 from "../../../assets/Icons/Icon3.png";
+
+import BG5Desktop from "../../../assets/Back-ground-images/5.jpg";
+import BG5Tablet from "../../../assets/Back-ground-images/5-tablet.png";
+import BG5Mobile from "../../../assets/Back-ground-images/5-mobile.png";
+
+import BG6Desktop from "../../../assets/Back-ground-images/6.jpg";
+import BG6Tablet from "../../../assets/Back-ground-images/6-tablet.png";
+import BG6Mobile from "../../../assets/Back-ground-images/6-mobile.png";
+
+import BG7Desktop from "../../../assets/Back-ground-images/7.jpg";
+import BG7Tablet from "../../../assets/Back-ground-images/7-tablet.png";
+import BG7Mobile from "../../../assets/Back-ground-images/7-mobile.png";
+
 // Static services data including title, icon, responsive background images, and link
 const servicesData = [
   {
     title: "Commercial Cleaning",
-    icon: "/Images/Icons/Icon1.png",
+    icon: Icon1,
     background: {
-      desktop: "/Images/Back-ground-images/5.jpg",
-      tablet: "/Images/Back-ground-images/5-tablet.png",
-      mobile: "/Images/Back-ground-images/5-mobile.png",
+      desktop: BG5Desktop,
+      tablet: BG5Tablet,
+      mobile: BG5Mobile,
     },
     link: "/Services",
   },
   {
     title: "Residential Cleaning",
-    icon: "/Images/Icons/Icon2.png",
+    icon: Icon2,
     background: {
-      desktop: "/Images/Back-ground-images/6.jpg",
-      tablet: "/Images/Back-ground-images/6-tablet.png",
-      mobile: "/Images/Back-ground-images/6-mobile.png",
+      desktop: BG6Desktop,
+      tablet: BG6Tablet,
+      mobile: BG6Mobile,
     },
     link: "/Services",
   },
   {
     title: "Specialized Cleaning",
-    icon: "/Images/Icons/Icon3.png",
+    icon: Icon3,
     background: {
-      desktop: "/Images/Back-ground-images/7.jpg",
-      tablet: "/Images/Back-ground-images/7-tablet.png",
-      mobile: "/Images/Back-ground-images/7-mobile.png",
+      desktop: BG7Desktop,
+      tablet: BG7Tablet,
+      mobile: BG7Mobile,
     },
     link: "/Services",
   },

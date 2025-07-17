@@ -2,27 +2,28 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./HeroSection.css";
 
+// Import background images for different screen sizes
+import Desktop1 from "../../../assets/Back-ground-images/1.jpg";
+import Desktop2 from "../../../assets/Back-ground-images/2.jpg";
+import Desktop3 from "../../../assets/Back-ground-images/3.jpg";
+import Desktop4 from "../../../assets/Back-ground-images/4.jpg";
+
+import Tablet1 from "../../../assets/Back-ground-images/1-tablet.png";
+import Tablet2 from "../../../assets/Back-ground-images/2-tablet.png";
+import Tablet3 from "../../../assets/Back-ground-images/3-tablet.png";
+import Tablet4 from "../../../assets/Back-ground-images/4-tablet.png";
+
+import Mobile1 from "../../../assets/Back-ground-images/1-mobile.png";
+import Mobile2 from "../../../assets/Back-ground-images/2-mobile.png";
+import Mobile3 from "../../../assets/Back-ground-images/3-mobile.png";
+import Mobile4 from "../../../assets/Back-ground-images/4-mobile.png";
+
 // Arrays holding background image URLs for different screen sizes
-const desktopImages = [
-  "/Images/Back-ground-images/1.jpg",
-  "/Images/Back-ground-images/2.jpg",
-  "/Images/Back-ground-images/3.jpg",
-  "/Images/Back-ground-images/4.jpg",
-];
+const desktopImages = [Desktop1, Desktop2, Desktop3, Desktop4];
 
-const tabletImages = [
-  "/Images/Back-ground-images/1-tablet.png",
-  "/Images/Back-ground-images/2-tablet.png",
-  "/Images/Back-ground-images/3-tablet.png",
-  "/Images/Back-ground-images/4-tablet.png",
-];
+const tabletImages = [Tablet1, Tablet2, Tablet3, Tablet4];
 
-const mobileImages = [
-  "/Images/Back-ground-images/1-mobile.png",
-  "/Images/Back-ground-images/2-mobile.png",
-  "/Images/Back-ground-images/3-mobile.png",
-  "/Images/Back-ground-images/4-mobile.png",
-];
+const mobileImages = [Mobile1, Mobile2, Mobile3, Mobile4];
 
 // Helper function to select which set of images to use based on window width
 const getImageSet = () => {

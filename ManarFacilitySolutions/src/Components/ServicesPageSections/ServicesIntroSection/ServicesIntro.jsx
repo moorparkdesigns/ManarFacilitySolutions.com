@@ -1,21 +1,26 @@
 import "./ServicesIntro.css";
 
+// Import service guarantee icons
+import Icon7 from "../../../assets/Icons/Icon7.png";
+import Icon8 from "../../../assets/Icons/Icon8.png";
+import Icon9 from "../../../assets/Icons/Icon9.png";
+
 // Array of service guarantee items with image, title, and description
 const guarantees = [
   {
-    image: "/Images/Icons/Icon7.png",
+    image: Icon7,
     title: "Commercial Cleaning",
     description:
       "This includes business-operating spaces such as offices, retail spaces and more.",
   },
   {
-    image: "/Images/Icons/Icon8.png",
+    image: Icon8,
     title: "Residential Cleaning",
     description:
       "We clean all types of homes, from semi-detached homes and apartments to condos and houses.",
   },
   {
-    image: "/Images/Icons/Icon9.png",
+    image: Icon9,
     title: "Specialized Cleaning",
     description:
       "Upon request, we offer specialized cleaning services such as carpet cleaning, window washing, etc.",

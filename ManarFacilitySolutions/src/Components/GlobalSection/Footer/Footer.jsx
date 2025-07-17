@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
+// Importing the logo using a relative path
+import Logo from "../../../assets/logo.png";
+
 function Footer() {
   return (
     // Main footer container
@@ -9,7 +12,7 @@ function Footer() {
         {/* Logo section with link to home page */}
         <div>
           <Link to="/">
-            <img src="/Images/logo.png" alt="Logo" />
+            <img src={Logo} alt="Logo" />
           </Link>
         </div>
 

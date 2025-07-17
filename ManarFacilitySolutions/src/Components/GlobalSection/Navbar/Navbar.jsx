@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import Logo from "../../../assets/logo.png"; // ✅ Import the logo image
 
 function Navbar() {
   // State to control navbar visibility based on scroll direction
@@ -74,7 +75,7 @@ function Navbar() {
 
             {/* Logo links to homepage; hidden when menu is open */}
             <Link to="/" className={`logo ${menuOpen ? "hidden-logo" : ""}`}>
-              <img src="/Images/logo.png" alt="logo" />
+              <img src={Logo} alt="logo" /> {/* ✅ Imported image used here */}
             </Link>
           </div>
 
@@ -154,7 +155,8 @@ function Navbar() {
         {/* Logo displayed at the bottom of the mobile menu */}
         <div className="mobile-logo">
           <Link to="/" onClick={toggleMenu}>
-            <img src="/Images/logo.png" alt="logo" />
+            <img src={Logo} alt="logo" />{" "}
+            {/* ✅ Imported image used here too */}
           </Link>
         </div>
       </div>

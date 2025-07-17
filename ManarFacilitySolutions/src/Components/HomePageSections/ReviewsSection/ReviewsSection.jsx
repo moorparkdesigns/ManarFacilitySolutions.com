@@ -1,6 +1,9 @@
 import { useRef, useEffect } from "react";
 import "./ReviewsSection.css";
 
+// Import star icon image
+import StarIcon from "../../../assets/Icons/Star.png";
+
 // Sample review data array with name, rating, and review text
 const reviewsData = [
   {
@@ -230,7 +233,7 @@ function ReviewsSection() {
                   {[...Array(review.rating)].map((_, i) => (
                     <img
                       key={i}
-                      src="/Images/Icons/Star.png"
+                      src={StarIcon}
                       alt="star"
                       className="star-icon"
                     />
