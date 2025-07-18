@@ -36,6 +36,7 @@
 
 .footer .container .content span ul {
   list-style: none;
+  margin: 3px 0;
 }
 .footer .container .content span ul li {
   display: inline;

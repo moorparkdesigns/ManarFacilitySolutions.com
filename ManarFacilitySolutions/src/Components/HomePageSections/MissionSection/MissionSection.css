@@ -64,6 +64,7 @@
 
 .our-mission .text a {
   color: #1a60a5;
+  width: max-content;
 }
 
 .our-mission .img-text img {

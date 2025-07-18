@@ -20,10 +20,17 @@ function Footer() {
         <div className="content">
           {/* Contact phone number and email */}
           <span>
-            352.966.2627 |
-            <a href="mailto:info@manarhomesevices.com">
-              info@manarhomesevices.com
-            </a>{" "}
+            <ul>
+              <li>
+                <a href="tel:3529662627">352.966.2627</a>
+              </li>
+              <li>
+                {" "}
+                <a href="mailto:info@manarhomesevices.com">
+                  info@manarhomesevices.com
+                </a>
+              </li>
+            </ul>
           </span>
 
           {/* Physical address */}
