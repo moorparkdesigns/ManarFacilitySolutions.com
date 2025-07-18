@@ -1,24 +1,19 @@
 .contactPage {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 10rem 0px 20px 0px;
+  padding: 10rem 0px 171px 0px;
 }
 
 .head {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: 500;
-
-  margin: 0.5rem 0;
 }
 
 .intro {
   text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  padding: 5px 10% 5% 10%;
-  font-weight: 400;
-  line-height: 1.8rem;
+  max-width: 595px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 66px;
 }
 
 .contactInfoWrapper {
@@ -26,30 +21,42 @@
   justify-content: center;
   align-items: flex-end;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 74px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .contactInfo {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 3rem;
-  /* width: 100%; */
+  width: 100%;
+  align-items: center;
 }
 
 .left,
 .right {
   flex: 1;
-  min-width: 250px;
+  height: max-content;
+  width: 100%;
+}
+.left {
+  max-width: 275px;
+  padding-left: 79px;
+}
+.right {
+  max-width: 354px;
 }
 
 .verticalDivider {
-  width: 1px;
+  width: 1.6px;
   background: #0e0c0c;
-  height: auto;
+  height: 100%;
   display: block;
   align-items: center;
+  align-self: stretch;
+  height: auto;
+  margin: 0 70px;
 }
 
 .left ul {
@@ -60,11 +67,15 @@
 
 .left li {
   display: flex;
-  /* align-items: flex-end; */
+  align-items: center;
+  gap: 20px;
   align-self: center;
   justify-content: flex-start;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
+}
+
+.left li:last-child {
+  margin-bottom: 0;
 }
 
 .icon {
@@ -75,14 +86,18 @@
 
 .left a {
   color: #336699;
-  font-size: 1rem;
+  font-size: 20px;
+  text-decoration: none;
 }
 
-.right strong {
+.left a:hover {
+  text-decoration: underline;
+}
+
+.right .tableHead {
   display: block;
   margin-bottom: 0.5rem;
-  font-family: "Newsreader", serif;
-  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .right p {
@@ -113,7 +128,6 @@ label {
   display: block;
   /* text-align: center; */
   margin-bottom: 0.5rem;
-
   font-weight: 600;
   font-size: 1.3rem;
   padding: 2% 0% 2% 0%;
@@ -210,26 +224,44 @@ textarea {
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 801px) and (max-width: 850px) {
+  .left {
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 800px) {
+  .left {
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 767px) {
   .contactInfo {
     flex-direction: column;
     align-items: center;
     width: 100%;
     gap: 2rem;
+
+    margin-bottom: 80px;
   }
 
   .horiDivider {
     display: block;
     border-top: 1.5px solid #222;
     width: 80px;
-    margin: 1.5rem auto 1.5rem auto;
+    margin: 64px auto 64px auto;
+  }
+
+  .left {
+    padding-left: 0;
   }
 
   .left ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 30px;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -255,11 +287,15 @@ textarea {
     word-break: break-word;
   }
 
-  .tableHead,
-  .right strong {
+  .right {
+    max-width: 259px;
+  }
+
+  .tableHead {
     text-align: center;
     display: block;
     width: 100%;
+    margin-bottom: 15px;
   }
 }
 
@@ -294,7 +330,8 @@ textarea {
 @media (max-width: 480px) {
   .container {
     padding: 1.5rem;
-    margin: 1.5rem auto;
+    margin: auto;
+    margin-bottom: 80px;
   }
 
   .tableHead {
