@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ContactSection.module.css";
-import { useForm, ValidationError } from "@formspree/react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-// Import SVGs from the assets folder
+// Import SVGs
 import phoneIcon from "../../assets/icons/phone.svg";
 import emailIcon from "../../assets/icons/email.svg";
 import locationIcon from "../../assets/icons/location.svg";
@@ -12,8 +11,6 @@ import locationIcon from "../../assets/icons/location.svg";
 const FORM_KEY = import.meta.env.VITE_FORMSPREE_ID;
 
 const Contact = () => {
-  const [state, handleSubmit] = useForm(FORM_KEY);
-
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -24,35 +21,55 @@ const Contact = () => {
   });
 
   const [phoneError, setPhoneError] = useState("");
-  const [showToast, setShowToast] = useState(false);
-  const [animateOut, setAnimateOut] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // adjust as needed
+      setIsMobile(window.innerWidth <= 768);
     };
-
-    handleResize(); // Run on first load
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  function stripNonDigits(value) {
-    return value.replace(/\D/g, "");
-  }
+  useEffect(() => {
+    const getCountryFromIP = async () => {
+      const services = [
+        "https://ipapi.co/json/",
+        "https://ip-api.com/json/",
+        "https://ipinfo.io/json",
+      ];
+      for (const url of services) {
+        try {
+          const res = await fetch(url);
+          const data = await res.json();
+          const countryCode =
+            data.country_code?.toLowerCase() ||
+            data.countryCode?.toLowerCase() ||
+            data.country?.toLowerCase();
+          if (countryCode) {
+            setFormData((f) => ({ ...f, phoneCountry: countryCode }));
+            return;
+          }
+        } catch {
+          console.warn(`GeoIP failed for: ${url}`);
+        }
+      }
+      setFormData((f) => ({ ...f, phoneCountry: "us" }));
+    };
+    getCountryFromIP();
+  }, []);
 
-  function isValidPhone(phoneValue, countryCode) {
-    const digitsOnly = stripNonDigits(phoneValue);
-    if (countryCode === "us") {
-      const digits = digitsOnly.startsWith("1")
-        ? digitsOnly.slice(1)
-        : digitsOnly;
-      return digits.length === 10;
-    } else {
-      return digitsOnly.length <= 15 && digitsOnly.length > 0;
+  const stripNonDigits = (val) => val.replace(/\D/g, "");
+
+  const isValidPhone = (value, country) => {
+    const digits = stripNonDigits(value);
+    if (country === "us") {
+      const national = digits.startsWith("1") ? digits.slice(1) : digits;
+      return national.length === 10;
     }
-  }
+    return digits.length > 0 && digits.length <= 15;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,39 +86,18 @@ const Contact = () => {
   };
 
   const onSubmit = (e) => {
-    e.preventDefault();
     if (!isValidPhone(formData.phone, formData.phoneCountry)) {
+      e.preventDefault();
       setPhoneError(
         formData.phoneCountry === "us"
           ? "US numbers must be exactly 10 digits."
-          : "Number exceeds maximum length of 15 digits or is missing."
+          : "Invalid phone number format."
       );
-      return;
     }
-    handleSubmit(e);
   };
 
-  useEffect(() => {
-    if (state.succeeded) {
-      setShowToast(true);
-      // Hide toast after 4s, then animate out, then reload
-      const toastTimer = setTimeout(() => {
-        setShowToast(false);
-        setAnimateOut(true);
-        setTimeout(() => {
-          window.location.reload();
-        }, 700); // match animation duration
-      }, 4000);
-      return () => clearTimeout(toastTimer);
-    }
-  }, [state.succeeded]);
-
   return (
-    <div
-      className={`${styles.contactPage} ${
-        animateOut ? styles.fadeOut : ""
-      } container`}
-    >
+    <div className={`${styles.contactPage} container`}>
       <h1 className={styles.head}>Contact us</h1>
       <p className={styles.intro}>
         Reach out via email or phone today; we’re happy to help with any
@@ -149,30 +145,19 @@ const Contact = () => {
               </div>
               {isMobile ? (
                 <>
-                  <div>
-                    <p>Monday</p>
-                    <p>9:00am - 7:00pm</p>
-                  </div>
-                  <div>
-                    <p>Tuesday</p>
-                    <p>9:00am - 7:00pm</p>
-                  </div>
-                  <div>
-                    <p>Wednesday</p>
-                    <p>9:00am - 7:00pm</p>
-                  </div>
-                  <div>
-                    <p>Thursday</p>
-                    <p>9:00am - 7:00pm</p>
-                  </div>
-                  <div>
-                    <p>Friday</p>
-                    <p>9:00am - 7:00pm</p>
-                  </div>
-                  <div>
-                    <p>Saturday</p>
-                    <p>9:00am - 7:00pm</p>
-                  </div>
+                  {[
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                  ].map((day) => (
+                    <div key={day}>
+                      <p>{day}</p>
+                      <p>9:00am - 7:00pm</p>
+                    </div>
+                  ))}
                 </>
               ) : (
                 <div>
@@ -186,16 +171,21 @@ const Contact = () => {
       </div>
 
       <div className={styles.container}>
-        <div className={styles.getInTouch}>
+        <h1 className={styles.getInTouch}>
           Get in <em>touch</em> with us!
-        </div>
+        </h1>
         <b>We’re happy to help with any questions or concerns!</b>
         <p>
           Fill out the form below or reach out via our email or phone number and
           we’ll get in touch with you soon.
         </p>
 
-        <form className={styles.contactForm} onSubmit={onSubmit}>
+        <form
+          className={styles.contactForm}
+          action={`https://formspree.io/f/${FORM_KEY}`}
+          method="POST"
+          onSubmit={onSubmit}
+        >
           <div className={styles.rowGroup}>
             <div className={styles.formGroup}>
               <label htmlFor="name">
@@ -210,25 +200,27 @@ const Contact = () => {
                 onChange={handleChange}
                 required
               />
-              <ValidationError
-                prefix="Name"
-                field="name"
-                errors={state.errors}
-              />
             </div>
+
             <div className={styles.formGroup}>
               <label htmlFor="phone">
                 Phone number <span className={styles.requiredStar}>*</span>
               </label>
               <PhoneInput
-                country={formData.phoneCountry}
+                country={formData.phoneCountry || "us"}
                 value={formData.phone}
                 onChange={handlePhoneChange}
+                enableLongNumbers
+                autoFormat
+                disableCountryGuess={false}
+                countryCodeEditable={true}
                 inputProps={{
                   name: "phone",
                   required: true,
                   style: { width: "100%" },
+                  autoComplete: "off",
                 }}
+                placeholder="+1 (000) 000-0000"
                 containerStyle={{ width: "100%" }}
                 inputStyle={{ width: "100%" }}
               />
@@ -237,11 +229,6 @@ const Contact = () => {
                   {phoneError}
                 </span>
               )}
-              <ValidationError
-                prefix="Phone"
-                field="phone"
-                errors={state.errors}
-              />
             </div>
           </div>
 
@@ -259,12 +246,8 @@ const Contact = () => {
                 onChange={handleChange}
                 required
               />
-              <ValidationError
-                prefix="Email"
-                field="email"
-                errors={state.errors}
-              />
             </div>
+
             <div className={styles.formGroup}>
               <label htmlFor="topic">
                 Topic <span className={styles.requiredStar}>*</span>
@@ -276,15 +259,25 @@ const Contact = () => {
                 onChange={handleChange}
                 required
               >
-                <option value="">-- Select a topic --</option>
-                <option value="a">a</option>
-                <option value="b">b</option>
+                <option value="">Select a topic</option>
+                <option value="Commercial Cleaning">Commercial Cleaning</option>
+                <option value="Residential Cleaning">
+                  Residential Cleaning
+                </option>
+                <option value="Deep or Specialized Cleaning">
+                  Deep or Specialized Cleaning
+                </option>
+                <option value="Move-In / Move-Out Cleaning">
+                  Move-In / Move-Out Cleaning
+                </option>
+                <option value="Carpet & Upholstery Cleaning">
+                  Carpet & Upholstery Cleaning
+                </option>
+                <option value="Window Cleaning">Window Cleaning</option>
+                <option value="Other / General Inquiry">
+                  Other / General Inquiry
+                </option>
               </select>
-              <ValidationError
-                prefix="Topic"
-                field="topic"
-                errors={state.errors}
-              />
             </div>
           </div>
 
@@ -301,23 +294,18 @@ const Contact = () => {
               onChange={handleChange}
               required
             ></textarea>
-            <ValidationError
-              prefix="Message"
-              field="message"
-              errors={state.errors}
-            />
           </div>
 
-          <button type="submit" disabled={state.submitting}>
-            {state.submitting ? "Submitting..." : "Submit"}
-          </button>
+          {/* Hidden Formspree fields */}
+          <input type="hidden" name="_captcha" value="true" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://manarfacilitysolutions.com/thank-you"
+          />
+
+          <button type="submit">Submit</button>
         </form>
-
-        {showToast && (
-          <div className={styles.formToast}>
-            Thank you, your request has been sent!
-          </div>
-        )}
       </div>
     </div>
   );

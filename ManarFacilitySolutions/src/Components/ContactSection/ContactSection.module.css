@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400..800;1,400..800&family=Wix+Madefor+Text:wght@400..800&display=swap");
+
 .contactPage {
   max-width: 1000px;
   margin: 0 auto;
@@ -106,12 +108,13 @@
 
 .container {
   background-color: #eff3f8;
-  padding: 3rem;
+  padding: 47px;
   border-radius: 5px;
-  max-width: 580px;
+  max-width: 586px;
   margin: 0 auto;
   height: auto;
   overflow: hidden;
+  font-family: "Wix Madefor Text", sans-serif;
 }
 
 .container h2 {
@@ -129,12 +132,13 @@ label {
   /* text-align: center; */
   margin-bottom: 0.5rem;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 22px;
   padding: 2% 0% 2% 0%;
+  font-family: "Wix Madefor Text", sans-serif;
 }
 
 .container p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 41px;
 }
 
 .contactForm {
@@ -150,22 +154,36 @@ label {
 }
 
 .formGroup label {
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 0.25rem;
+  font-size: 17px;
+  font-family: "Wix Madefor Text", sans-serif;
 }
 
 .formGroup input,
 .formGroup textarea,
 .formGroup select {
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid #b3cde6; /* lighter blue */
   border-radius: 4px;
   font-size: 1rem;
   width: 100%;
   box-sizing: border-box;
+  height: 48px;
+  transition: border-color 0.3s ease; /* smooth transition */
+  font-family: "Wix Madefor Text", sans-serif;
 }
-textarea {
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+  border-color: #6a92ba; /* darker blue when clicked/focused */
+  outline: none; /* optional: removes default blue glow */
+}
+
+.formGroup textarea {
   width: 100% !important;
+  height: 145px;
 }
 .formGroup select {
   height: 48px;
@@ -212,7 +230,6 @@ textarea {
 }
 
 .getInTouch {
-  font-size: 2.5rem;
   font-weight: 500;
   margin-bottom: 1rem;
 }
