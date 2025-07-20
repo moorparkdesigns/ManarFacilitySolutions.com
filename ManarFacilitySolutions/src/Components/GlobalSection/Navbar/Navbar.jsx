@@ -117,7 +117,7 @@ function Navbar() {
               <Link to="/About">About</Link>
             </li>
             <li onClick={toggleMenu}>
-              <Link to="/Conact">Contact</Link>
+              <Link to="/Contact">Contact</Link>
             </li>
             <li onClick={toggleMenu}>
               <a
