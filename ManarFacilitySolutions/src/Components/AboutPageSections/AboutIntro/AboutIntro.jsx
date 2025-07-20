@@ -2,8 +2,10 @@ import "./AboutIntro.css";
 
 function AboutIntro() {
   return (
+    // Main wrapper for the About Intro section
     <div className="about-intro">
       <div className="container">
+        {/* Content area with background styling */}
         <div className="background-content ">
           <h1>About us</h1>
           <p>

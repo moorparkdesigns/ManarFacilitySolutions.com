@@ -11,12 +11,12 @@ import AboutPage from "./Pages/AboutPage";
 import BookNowPage from "./Pages/BookNowPage";
 import ContactPage from "./Pages/ContactPage";
 
-// Layout wrapper with Navbar and Footer
-// Layout wrapper with Navbar and Footer
+// Layout component wrapping pages with common UI (Navbar and Footer)
 function Layout({ children }) {
   return (
     <>
       <Navbar />
+      {/* Main content area */}
       <div className="content">{children}</div>
       <Footer />
     </>
@@ -24,12 +24,17 @@ function Layout({ children }) {
 }
 
 function App() {
+  // Get current location to control route-based effects and keys
   const location = useLocation();
 
   return (
     <>
+      {/* Scroll to top on route change for better UX */}
       <ScrollToTop />
+
+      {/* Define routes with layout wrapper */}
       <Routes location={location} key={location.pathname}>
+        {/* Home page route */}
         <Route
           path="/"
           element={
@@ -38,6 +43,8 @@ function App() {
             </Layout>
           }
         />
+
+        {/* Services page route */}
         <Route
           path="/Services"
           element={
@@ -46,6 +53,8 @@ function App() {
             </Layout>
           }
         />
+
+        {/* About page route */}
         <Route
           path="/About"
           element={
@@ -54,6 +63,8 @@ function App() {
             </Layout>
           }
         />
+
+        {/* Contact page route (currently commented out) */}
         <Route
           path="/Contact"
           element={
