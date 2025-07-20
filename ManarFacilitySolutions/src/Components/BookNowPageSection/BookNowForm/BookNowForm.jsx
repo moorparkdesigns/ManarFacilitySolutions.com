@@ -20,7 +20,29 @@ function isValidPhone(phoneValue, countryCode) {
       : digitsOnly;
     return digits.length === 10;
   } else {
-    return digitsOnly.length <= 15 && digitsOnly.length > 0;
+    // For all other countries, also enforce maximum 10 digits after country code
+    // Get country dial codes (approximate common ones)
+    const commonDialCodes = {
+      'ca': '1',    // Canada
+      'gb': '44',   // UK
+      'au': '61',   // Australia
+      'de': '49',   // Germany
+      'fr': '33',   // France
+      'in': '91',   // India
+      'cn': '86',   // China
+      'jp': '81',   // Japan
+    };
+    
+    const dialCode = commonDialCodes[countryCode] || '1';
+    let nationalNumber = digitsOnly;
+    
+    // Remove dial code if present
+    if (nationalNumber.startsWith(dialCode)) {
+      nationalNumber = nationalNumber.slice(dialCode.length);
+    }
+    
+    // Enforce maximum 10 digits for national number
+    return nationalNumber.length <= 10 && nationalNumber.length >= 7;
   }
 }
 
@@ -79,6 +101,8 @@ export default function BookNowForm() {
   });
 
   const [showToast, setShowToast] = useState(false);
+  const [showErrorToast, setShowErrorToast] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [proximity, setProximity] = useState(null);
   const [phoneError, setPhoneError] = useState("");
   const [animateIn, setAnimateIn] = useState(false);
@@ -158,15 +182,75 @@ export default function BookNowForm() {
     }
   }, [state.succeeded]);
 
+  // Handle form errors
+  useEffect(() => {
+    if (state.errors && state.errors.length > 0) {
+      const errorMessages = [];
+      
+      state.errors.forEach(error => {
+        if (error.field === 'fullname') {
+          errorMessages.push('Please enter your full name');
+        } else if (error.field === 'email') {
+          errorMessages.push('Please enter a valid email address');
+        } else if (error.field === 'phone') {
+          errorMessages.push('Please enter a valid phone number');
+        } else if (error.field === 'service') {
+          errorMessages.push('Please select a service type');
+        } else if (error.field === 'address') {
+          errorMessages.push('Please enter your address');
+        } else if (error.field === 'date') {
+          errorMessages.push('Please select a preferred date');
+        } else {
+          errorMessages.push('Please check your form entries');
+        }
+      });
+
+      const uniqueErrors = [...new Set(errorMessages)];
+      setErrorMessage(uniqueErrors.join(', '));
+      setShowErrorToast(true);
+
+      const timer = setTimeout(() => {
+        setShowErrorToast(false);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [state.errors]);
+
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!isValidPhone(formData.phone, formData.phoneCountry)) {
-      setPhoneError(
-        formData.phoneCountry === "us"
-          ? "US numbers must be exactly 10 digits."
-          : "Number exceeds maximum length of 15 digits or is missing."
-      );
+    // Clear previous errors
+    setShowErrorToast(false);
+    setPhoneError("");
+
+    // Validate required fields
+    const errors = [];
+    if (!formData.fullname.trim()) errors.push('Please enter your full name');
+    if (!formData.email.trim()) errors.push('Please enter your email address');
+    if (!formData.phone.trim()) errors.push('Please enter your phone number');
+    if (!formData.service) errors.push('Please select a service type');
+    if (!formData.address.trim()) errors.push('Please enter your address');
+    if (!formData.date) errors.push('Please select a preferred date');
+
+    // Validate phone number
+    if (formData.phone && !isValidPhone(formData.phone, formData.phoneCountry)) {
+      const phoneErrorMsg = formData.phoneCountry === "us"
+        ? "US numbers must be exactly 10 digits"
+        : "Number exceeds maximum length of 15 digits or is missing";
+      setPhoneError(phoneErrorMsg);
+      errors.push(phoneErrorMsg);
+    }
+
+    // Show error toast if there are validation errors
+    if (errors.length > 0) {
+      setErrorMessage(errors.join(', '));
+      setShowErrorToast(true);
+      
+      const timer = setTimeout(() => {
+        setShowErrorToast(false);
+      }, 5000);
+      
       return;
     }
 
@@ -176,6 +260,10 @@ export default function BookNowForm() {
   const handleToastClose = () => {
     setShowToast(false);
     window.location.reload();
+  };
+
+  const handleErrorToastClose = () => {
+    setShowErrorToast(false);
   };
 
   return (
@@ -239,15 +327,27 @@ export default function BookNowForm() {
                   value={formData.phone}
                   onChange={(value, data) => {
                     const digitsOnly = value.replace(/\D/g, "");
+                    const countryDialCode = data.dialCode || "1";
+                    
+                    // Remove country code to get national number
+                    let nationalNumber = digitsOnly;
+                    if (nationalNumber.startsWith(countryDialCode)) {
+                      nationalNumber = nationalNumber.slice(countryDialCode.length);
+                    }
+                    
+                    // Enforce maximum 10 digits for national number
+                    if (nationalNumber.length > 10) {
+                      return; // Don't allow more than 10 digits
+                    }
+                    
+                    // Special handling for US numbers
                     if (data.countryCode === "us") {
-                      let nationalNumber = digitsOnly;
-                      if (nationalNumber.startsWith("1")) {
-                        nationalNumber = nationalNumber.slice(1);
-                      }
                       if (nationalNumber.length > 10) return;
                     } else {
-                      if (digitsOnly.length > 15) return;
+                      // For other countries, still limit to 10 digits after country code
+                      if (nationalNumber.length > 10) return;
                     }
+                    
                     setField("phone", value);
                     setField("phoneCountry", data.countryCode);
                     setPhoneError("");
@@ -397,6 +497,30 @@ export default function BookNowForm() {
           <button
             type="button"
             onClick={handleToastClose}
+            style={{
+              marginLeft: "1.5rem",
+              background: "transparent",
+              border: "none",
+              color: "#fff",
+              fontSize: "1.3rem",
+              cursor: "pointer",
+              position: "absolute",
+              top: "0.5rem",
+              right: "1rem",
+            }}
+            aria-label="Close"
+          >
+            &times;
+          </button>
+        </div>
+      )}
+
+      {showErrorToast && (
+        <div className={styles.errorToast}>
+          {errorMessage}
+          <button
+            type="button"
+            onClick={handleErrorToastClose}
             style={{
               marginLeft: "1.5rem",
               background: "transparent",

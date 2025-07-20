@@ -9,6 +9,8 @@ import ScrollToTop from "./Components/GlobalSection/ScrollToTop/ScrollToTop";
 import HomePage from "./Pages/HomePage";
 import ServicesPage from "./Pages/ServicesPage";
 import AboutPage from "./Pages/AboutPage";
+import ContactPage from "./Pages/ContactPage";
+import BookNowPage from "./Pages/BookNowPage";
 
 // Layout wrapper with Navbar and Footer
 // Layout wrapper with Navbar and Footer
@@ -56,7 +58,7 @@ function App() {
         <Route
           path="/Contact"
           element={
-            <Layout key={location.pathname}><ContactPagePage /> </Layout>} ></Route>
+            <Layout key={location.pathname}><ContactPage /> </Layout>} ></Route>
       <Route path="/book-now" element={<Layout> <BookNowPage />
       </Layout>
           }
