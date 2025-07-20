@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
-import ReactDatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
-import GeoapifyAutocomplete from '../../GeoapifyAutocomplete/GeoapifyAutocomplete.jsx';
-import styles from './BookNowForm.module.css';
+import React, { useState, useEffect, useCallback } from "react";
+import { useForm, ValidationError } from "@formspree/react";
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import GeoapifyAutocomplete from "../../GeoapifyAutocomplete/GeoapifyAutocomplete.jsx";
+import styles from "./BookNowForm.module.css";
 
 function stripNonDigits(value) {
   return value.replace(/\D/g, "");
@@ -49,12 +49,12 @@ function isValidPhone(phoneValue, countryCode) {
 // Custom hook for form fields
 function useFormFields(initial) {
   const [fields, setFields] = useState(initial);
-  const handleFieldChange = useCallback(e => {
+  const handleFieldChange = useCallback((e) => {
     const { name, value } = e.target;
-    setFields(f => ({ ...f, [name]: value }));
+    setFields((f) => ({ ...f, [name]: value }));
   }, []);
   const setField = useCallback((name, value) => {
-    setFields(f => ({ ...f, [name]: value }));
+    setFields((f) => ({ ...f, [name]: value }));
   }, []);
   return [fields, handleFieldChange, setField];
 }
@@ -90,14 +90,14 @@ export default function BookNowForm() {
   const [state, handleSubmit] = useForm(FORM_KEY);
 
   const [formData, handleChange, setField] = useFormFields({
-    fullname: '',
-    phoneCountry: 'us',
-    phone: '',
-    email: '',
-    service: '',
-    address: '',
+    fullname: "",
+    phoneCountry: "us",
+    phone: "",
+    email: "",
+    service: "",
+    address: "",
     date: null,
-    notes: '',
+    notes: "",
   });
 
   const [showToast, setShowToast] = useState(false);
@@ -116,9 +116,9 @@ export default function BookNowForm() {
     const getCountryFromIP = async () => {
       try {
         const ipServices = [
-          'https://ipapi.co/json/',
-          'https://ip-api.com/json/',
-          'https://ipinfo.io/json'
+          "https://ipapi.co/json/",
+          "https://ip-api.com/json/",
+          "https://ipinfo.io/json",
         ];
 
         for (const service of ipServices) {
@@ -136,7 +136,7 @@ export default function BookNowForm() {
             }
 
             if (countryCode) {
-              setField('phoneCountry', countryCode);
+              setField("phoneCountry", countryCode);
               return;
             }
           } catch (error) {
@@ -145,10 +145,10 @@ export default function BookNowForm() {
           }
         }
 
-        setField('phoneCountry', 'us');
+        setField("phoneCountry", "us");
       } catch (error) {
-        console.warn('Error getting country from IP:', error);
-        setField('phoneCountry', 'us');
+        console.warn("Error getting country from IP:", error);
+        setField("phoneCountry", "us");
       }
     };
 
@@ -160,7 +160,7 @@ export default function BookNowForm() {
           setProximity({ lat: coords.latitude, lon: coords.longitude });
         },
         (error) => {
-          console.warn('Geolocation error:', error);
+          console.warn("Geolocation error:", error);
         }
       );
     };
@@ -272,16 +272,17 @@ export default function BookNowForm() {
         <div className={styles.left}>
           <h2>Booking form</h2>
           <p>
-            Based in Gainesville, FL, we serve the greater Alachua County and surrounding areas.
+            Based in Gainesville, FL, we serve the greater Alachua County and
+            surrounding areas.
           </p>
           <br />
           <p>
-            Fill out the form or call us at{' '}
+            Fill out the form or call us at{" "}
             <a href="tel:3529662627">(352)-966-2627</a>.
           </p>
         </div>
 
-        <div className={`${styles.right} ${animateIn ? styles.animateIn : ''}`}>
+        <div className={`${styles.right} ${animateIn ? styles.animateIn : ""}`}>
           <h2 className={styles.formTitle}>
             Book a <em>cleaning</em> now.
           </h2>
@@ -289,13 +290,11 @@ export default function BookNowForm() {
             Booking our services has never been easier.
           </p>
           <p>
-            Fill out the form below or reach out via our email or phone number and we'll get in touch with you soon.
+            Fill out the form below or reach out via our email or phone number
+            and we'll get in touch with you soon.
           </p>
 
-          <form
-            className={styles.booknowForm}
-            onSubmit={onSubmit}
-          >
+          <form className={styles.booknowForm} onSubmit={onSubmit}>
             <FormField
               label="Full name"
               required
@@ -405,10 +404,23 @@ export default function BookNowForm() {
                 required
               >
                 <option value="">Select a service</option>
-                <option value="commercial">Commercial</option>
-                <option value="residential">Residential</option>
-                <option value="specialized">Specialized</option>
-                <option value="other">Other</option>
+                <option value="Commercial Cleaning">Commercial Cleaning</option>
+                <option value="Residential Cleaning">
+                  Residential Cleaning
+                </option>
+                <option value="Deep or Specialized Cleaning">
+                  Deep or Specialized Cleaning
+                </option>
+                <option value="Move-In / Move-Out Cleaning">
+                  Move-In / Move-Out Cleaning
+                </option>
+                <option value="Carpet & Upholstery Cleaning">
+                  Carpet & Upholstery Cleaning
+                </option>
+                <option value="Window Cleaning">Window Cleaning</option>
+                <option value="Other / General Inquiry">
+                  Other / General Inquiry
+                </option>
               </select>
             </FormField>
 
@@ -419,11 +431,19 @@ export default function BookNowForm() {
                 </label>
                 <GeoapifyAutocomplete
                   value={formData.address || ""}
-                  onChange={addr => setField('address', addr)}
+                  onChange={(addr) => setField("address", addr)}
                   proximity={proximity}
                 />
-                <input type="hidden" name="address" value={formData.address || ""} />
-                <ValidationError prefix="Address" field="address" errors={state.errors} />
+                <input
+                  type="hidden"
+                  name="address"
+                  value={formData.address || ""}
+                />
+                <ValidationError
+                  prefix="Address"
+                  field="address"
+                  errors={state.errors}
+                />
               </div>
 
               <FormField
@@ -435,7 +455,7 @@ export default function BookNowForm() {
               >
                 <ReactDatePicker
                   selected={formData.date || null}
-                  onChange={d => setField('date', d)}
+                  onChange={(d) => setField("date", d)}
                   dateFormat="dd-MM-yyyy"
                   minDate={new Date()}
                   placeholderText="DD-MM-YYYY"
@@ -483,10 +503,9 @@ export default function BookNowForm() {
                   <span className={styles.spinner}></span>
                 </>
               ) : (
-                'Submit Booking'
+                "Submit Booking"
               )}
             </button>
-
           </form>
         </div>
       </div>
