@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400..800;1,400..800&family=Wix+Madefor+Text:wght@400..800&display=swap');
+
+p{
+  font-family: "Wix Madefor Text", sans-serif;
+}
+.booknowpageBg {
+  min-height: 100vh;
+  background-color: #0F3C69;
+  font-family: "Wix Madefor Text", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10rem 1rem;
+  box-sizing: border-box;
+}
+
+.left {
+  max-width: 350px;
+  color: #FEFEFE;
+  padding-top: 2rem;
+  padding-right: 10%;
+}
+
+.left h2 {
+  font-size: 2.5rem;
+  text-align: left;
+}
+
+.left a {
+  color: #6A92BA;
+}
+
+.right {
+  flex: 1 1 0;
+  min-width: 600px;
+  max-width: 650px;
+  color: #151515;
+  background: #f7fafd;
+  border-radius: 1px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(15, 60, 105, 0.06);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+}
+
+.formTitle {
+  font-size: 2.1rem;
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+  font-family: "Newsreader", serif;
+  text-align: left;
+  
+}
+
+.formTitle em {
+  font-style: italic;
+}
+
+.formSubtext {
+  font-size: 1.25rem !important;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  margin-top: 0.5rem;
+  font-family: "Wix Madefor Text", sans-serif;
+}
+
+.booknowForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: #222;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #cfd8e3;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+  font-family: "Wix Madefor Text", sans-serif;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border: 1.5px solid #6A92BA;
+  outline: none;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.fullWidth textarea {
+  width: auto;
+  min-height: 150px;  
+}
+
+.addressDateGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  grid-column: 1 / -1;
+  align-items: end;
+}
+
+.addressDateGroup > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.customDatepicker {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #cfd8e3;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+}
+
+.customDatepicker:focus {
+  border: 1.5px solid #6A92BA;
+  outline: none;
+}
+
+.requiredStar {
+  color: red;
+}
+
+.submitBookingBtn {
+  grid-column: 1 / 3;
+  background: #174a7c;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.7rem 0;
+  border: none;
+  margin-top: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 150px;
+  border-radius: 4px;
+  font-style: italic;
+  justify-self: center;
+  box-shadow: 0 2px 8px rgba(15, 60, 105, 0.06);
+}
+
+.submitBookingBtn:hover {
+  background: #0f3c69;
+}
+
+.formToast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: #174a7c;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(15, 60, 105, 0.15);
+  z-index: 9999;
+  font-size: 1.1rem;
+}
+/* animation for spinner icon  */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Phone Input Styling - Fixed Width and Consistent Styling */
+.formGroup .react-tel-input {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 3.2em !important;
+}
+
+.formGroup .react-tel-input .flag-dropdown {
+  width: 50px !important;
+  border: 1px solid #cfd8e3 !important;
+  border-radius: 4px 0 0 4px !important;
+  background: #fff !important;
+  transition: border 0.2s !important;
+}
+
+.formGroup .react-tel-input .form-control {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  height: 3.2rem !important;
+  padding: 0.7rem 0.9rem !important;
+  padding-left: 60px !important;
+  border: 1px solid #cfd8e3 !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  background: #fff !important;
+  transition: border 0.2s !important;
+  font-family: "Wix Madefor Text", sans-serif !important;
+}
+
+.formGroup .react-tel-input .form-control:focus {
+  border: 1.5px solid #6A92BA !important;
+  outline: none !important;
+}
+
+.formGroup .react-tel-input .form-control::placeholder {
+  text-indent: 2px !important;
+  opacity: 0.6 !important;
+  font-family: "Wix Madefor Text", sans-serif !important;
+}
+
+.formGroup .react-tel-input .flag-dropdown:focus {
+  border: 1.5px solid #6A92BA !important;
+  outline: none !important;
+}
+
+/* Remove old phone input styles that might conflict */
+.react-tel-input .flag-dropdown {
+  width: 50px;
+}
+
+.react-tel-input .form-control {
+  padding-left: 60px !important;
+  height: 3.2rem;
+  width: auto;
+}
+
+
+.react-tel-input .form-control::placeholder {
+  text-indent: 2px;
+  opacity: 0.6;
+  font-family: "Wix Madefor Text", sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .right,
+  .left {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .left {
+    /* text-align: center; */
+  }
+
+  .addressDateGroup {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    grid-column: 1 / 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .booknowForm {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .booknowForm button[type="submit"] {
+    grid-column: 1 / 2;
+  }
+
+  select {
+    height: 3.2rem;
+  }
+}
+
+@keyframes fadeInUpBezier {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animateIn {
+  animation: fadeInUpBezier 0.4s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation-delay: 0.1s;
+  pointer-events: auto;
+}

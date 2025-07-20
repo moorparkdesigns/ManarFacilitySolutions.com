@@ -91,8 +91,7 @@ function Navbar() {
               <Link to="/About">About</Link>
             </li>
             <li>
-              <Link to="/Conact">Contact</Link>{" "}
-              {/* Note: Typo here: "Conact" */}
+              <Link to="/Contact">Contact</Link>
             </li>
             <li>
               {/* External blog link opens in new tab with security attributes */}
@@ -133,7 +132,7 @@ function Navbar() {
               <Link to="/About">About</Link>
             </li>
             <li onClick={toggleMenu}>
-              <Link to="/Conact">Contact</Link> {/* Same typo here */}
+              <Link to="/Contact">Contact</Link>
             </li>
             <li onClick={toggleMenu}>
               <a

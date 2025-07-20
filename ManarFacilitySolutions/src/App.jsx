@@ -8,6 +8,8 @@ import ScrollToTop from "./Components/GlobalSection/ScrollToTop/ScrollToTop";
 import HomePage from "./Pages/HomePage";
 import ServicesPage from "./Pages/ServicesPage";
 import AboutPage from "./Pages/AboutPage";
+import BookNowPage from "./Pages/BookNowPage";
+import ContactPage from "./Pages/ContactPage";
 
 // Layout component wrapping pages with common UI (Navbar and Footer)
 function Layout({ children }) {
@@ -66,7 +68,18 @@ function App() {
         <Route
           path="/Contact"
           element={
-            <Layout key={location.pathname}>{/* <ContactPage /> */}</Layout>
+            <Layout key={location.pathname}>
+              <ContactPage />{" "}
+            </Layout>
+          }
+        ></Route>
+        <Route
+          path="/book-now"
+          element={
+            <Layout>
+              {" "}
+              <BookNowPage />
+            </Layout>
           }
         />
       </Routes>
