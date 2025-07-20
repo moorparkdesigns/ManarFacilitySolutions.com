@@ -5,7 +5,12 @@ import ReviewsSection from "../Components/HomePageSections/ReviewsSection/Review
 import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection";
 import { Helmet } from "react-helmet-async";
 
+// Imported images used in mission section
+import Img4_2 from "../assets/Back-ground-images/(4)-2.png"; // Responsive image variant 1
+import Img4 from "../assets/Back-ground-images/4.jpg"; // Main image for SEO/social and display
+
 function HomePage() {
+  // Content data for the MissionSection with JSX description and images
   const missionContent = {
     title: "Our mission",
     description: (
@@ -24,15 +29,16 @@ function HomePage() {
         experience our 5-star services.
       </>
     ),
-    img1: "/Images/Back-ground-images/(4)-2.png",
-    img2: "/Images/Back-ground-images/4.jpg",
-    button: true,
+    img1: Img4_2, // Responsive image variant 1
+    img2: Img4, // Main image for SEO/social and display
+    button: true, // Show button in MissionSection
   };
 
   return (
     <>
+      {/* SEO meta tags and structured data for homepage */}
       <Helmet key="home-page">
-        {/* Primary Meta */}
+        {/* Primary meta tags for SEO */}
         <title>
           Affordable & Trusted Cleaning Services | Manar Facility Solutions
         </title>
@@ -46,7 +52,7 @@ function HomePage() {
         />
         <link rel="canonical" href="https://www.manarfacilitysolutions.com" />
 
-        {/* Open Graph / Facebook */}
+        {/* Open Graph tags for Facebook and social sharing */}
         <meta
           property="og:title"
           content="Manar Facility Solutions | Cleaning Services in Gainesville FL"
@@ -62,7 +68,7 @@ function HomePage() {
         />
         <meta property="og:type" content="website" />
 
-        {/* Twitter */}
+        {/* Twitter card meta tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -74,10 +80,10 @@ function HomePage() {
         />
         <meta name="twitter:image" content={missionContent.img2} />
 
-        {/* Preload Image */}
+        {/* Preload main image for better performance */}
         <link rel="preload" as="image" href={missionContent.img2} />
 
-        {/* Schema JSON-LD */}
+        {/* JSON-LD structured data to improve SEO with LocalBusiness schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -116,17 +122,19 @@ function HomePage() {
           })}
         </script>
       </Helmet>
-      <HeroSection />
+      {/* Render main homepage sections in order */}
+      <HeroSection /> {/* Hero banner with main site introduction */}
       <MissionSection
-        title={missionContent.missionTitle}
-        description={missionContent.missionDescription}
+        title={missionContent.title}
+        description={missionContent.description}
         button={true}
         img1={missionContent.img1}
         img2={missionContent.img2}
-      />
-      <ServicesSection />
-      <ReviewsSection />
-      <CtaSection />
+      />{" "}
+      {/* Mission statement and core values section */}
+      <ServicesSection /> {/* Overview of services offered */}
+      <ReviewsSection /> {/* Customer testimonials */}
+      <CtaSection /> {/* Call to action prompting booking */}
     </>
   );
 }

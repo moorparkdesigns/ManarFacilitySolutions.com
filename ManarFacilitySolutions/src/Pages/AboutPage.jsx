@@ -5,6 +5,11 @@ import MissionSection from "../Components/HomePageSections/MissionSection/Missio
 import AboutGuarantee from "../Components/AboutPageSections/AboutGuarantee/AboutGuarantee";
 import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection";
 
+// Imported images used in aboutContent
+import Img9_2 from "../assets/Back-ground-images/(9)-2.png"; // Image for responsive use in MissionSection
+import Img9 from "../assets/Back-ground-images/9.jpg"; // Main image for SEO/social meta tags
+
+// Content data used in the page, including title, description (with JSX), and images
 const aboutContent = {
   title: "Our story",
   description: (
@@ -23,15 +28,16 @@ const aboutContent = {
       solutions for residents and businesses in Alachua.
     </>
   ),
-  img1: "/Images/Back-ground-images/(9)-2.png",
-  img2: "/Images/Back-ground-images/9.jpg",
+  img1: Img9_2, // Image for responsive use in MissionSection
+  img2: Img9, // Main image for SEO/social meta tags
 };
 
 function AboutPage() {
   return (
     <>
+      {/* Manage SEO and social sharing metadata */}
       <Helmet key="about-page">
-        {/* Primary Meta */}
+        {/* Primary meta tags */}
         <title>
           About Us | Excellence in Cleaning for Over 20 Years | Manar Facility
           Solutions
@@ -46,7 +52,7 @@ function AboutPage() {
         />
         <link rel="canonical" href="https://manarfacilitysolutions.com/About" />
 
-        {/* Open Graph / Facebook */}
+        {/* Open Graph tags for Facebook and other social platforms */}
         <meta
           property="og:title"
           content="About Us | Manar Facility Solutions"
@@ -62,7 +68,7 @@ function AboutPage() {
         />
         <meta property="og:type" content="website" />
 
-        {/* Twitter */}
+        {/* Twitter card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -74,10 +80,10 @@ function AboutPage() {
         />
         <meta name="twitter:image" content={aboutContent.img2} />
 
-        {/* Preload important image */}
+        {/* Preload main image for faster loading */}
         <link rel="preload" as="image" href={aboutContent.img2} />
 
-        {/* Schema JSON-LD */}
+        {/* JSON-LD structured data for LocalBusiness schema to improve SEO */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -115,16 +121,17 @@ function AboutPage() {
           })}
         </script>
       </Helmet>
-
-      <AboutIntro />
+      {/* Page Sections */}
+      <AboutIntro /> {/* Introductory about us section */}
       <MissionSection
-        title={aboutContent.aboutTitle}
-        description={aboutContent.aboutDescription}
+        title={aboutContent.title}
+        description={aboutContent.description}
         img1={aboutContent.img1}
         img2={aboutContent.img2}
-      />
-      <AboutGuarantee />
-      <CtaSection />
+      />{" "}
+      {/* Mission/Our Story section with images */}
+      <AboutGuarantee /> {/* Section showcasing company guarantees */}
+      <CtaSection /> {/* Call-to-action prompting user to book service */}
     </>
   );
 }
