@@ -2,6 +2,7 @@ import HeroSection from "../Components/HomePageSections/HeroSection/HeroSection"
 import MissionSection from "../Components/HomePageSections/MissionSection/MissionSection";
 import ServicesSection from "../Components/HomePageSections/ServicesSection/ServicesSection";
 import ReviewsSection from "../Components/HomePageSections/ReviewsSection/ReviewsSection";
+import ChooseUs from "../Components/HomePageSections/ChooseUsSection/ChooseUs";
 import CtaSection from "../Components/GlobalSection/CtaSection/CtaSection";
 import { Helmet } from "react-helmet-async";
 
@@ -134,6 +135,7 @@ function HomePage() {
       {/* Mission statement and core values section */}
       <ServicesSection /> {/* Overview of services offered */}
       <ReviewsSection /> {/* Customer testimonials */}
+      <ChooseUs />
       <CtaSection /> {/* Call to action prompting booking */}
     </>
   );
