@@ -115,6 +115,5 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 | Developer | Nelani Maluka              | [GitHub](https://github.com/NelaniMaluka)          |
 | Developer | Godfred                    | [GitHub](https://github.com/lux-mundi)             |
 | Developer | Sairam Soundararajan       | [GitHub](https://github.com/ssoundarararajan)      |
-| Developer | Divine Omale               | [GitHub](https://github.com/DivineOmale)           |
 
 > Built for **Manar Facility Solutions** – Gainesville, Alachua County, FL
