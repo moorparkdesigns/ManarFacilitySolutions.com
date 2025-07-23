@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400..800;1,400..800&family=Wix+Madefor+Text:wght@400..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400..800;1,400..800&family=Wix+Madefor+Text:wght@400..800&display=swap");
 
-p{
+p {
   font-family: "Wix Madefor Text", sans-serif;
 }
 .booknowpageBg {
   min-height: 100vh;
-  background-color: #0F3C69;
+  background-color: #0f3c69;
   font-family: "Wix Madefor Text", sans-serif;
 }
 
-.container {
+.booknowpageBg .container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,23 +21,18 @@ p{
   box-sizing: border-box;
 }
 
-.left {
+.booknowpageBg .left {
   max-width: 350px;
-  color: #FEFEFE;
+  color: #fefefe;
   padding-top: 2rem;
   padding-right: 10%;
 }
 
-.left h2 {
-  font-size: 2.5rem;
-  text-align: left;
+.booknowpageBg .left a {
+  color: #6a92ba;
 }
 
-.left a {
-  color: #6A92BA;
-}
-
-.right {
+.booknowpageBg .right {
   flex: 1 1 0;
   min-width: 600px;
   max-width: 650px;
@@ -50,23 +45,21 @@ p{
   flex-direction: column;
   opacity: 0;
   transform: translateY(40px);
-  pointer-events: none;
 }
 
-.formTitle {
+.booknowpageBg .formTitle {
   font-size: 2.1rem;
   font-weight: 500;
   margin-bottom: 0.7rem;
   font-family: "Newsreader", serif;
   text-align: left;
-  
 }
 
-.formTitle em {
+.booknowpageBg .formTitle em {
   font-style: italic;
 }
 
-.formSubtext {
+.booknowpageBg .formSubtext {
   font-size: 1.25rem !important;
   font-weight: 600;
   margin-bottom: 0.75rem;
@@ -74,19 +67,19 @@ p{
   font-family: "Wix Madefor Text", sans-serif;
 }
 
-.booknowForm {
+.booknowpageBg .booknowForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
   margin-top: 1.2rem;
 }
 
-.formGroup {
+.booknowpageBg .formGroup {
   display: flex;
   flex-direction: column;
 }
 
-.formGroup label {
+.booknowpageBg .formGroup label {
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.3rem;
@@ -108,7 +101,7 @@ p{
 .formGroup input:focus,
 .formGroup select:focus,
 .formGroup textarea:focus {
-  border: 1.5px solid #6A92BA;
+  border: 1.5px solid #6a92ba;
   outline: none;
 }
 
@@ -117,12 +110,12 @@ p{
   width: 100%;
 }
 
-.fullWidth textarea {
+.booknowpageBg .fullWidth textarea {
   width: auto;
-  min-height: 150px;  
+  min-height: 150px;
 }
 
-.addressDateGroup {
+.booknowpageBg .addressDateGroup {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
@@ -130,12 +123,12 @@ p{
   align-items: end;
 }
 
-.addressDateGroup > div {
+.booknowpageBg .addressDateGroup > div {
   display: flex;
   flex-direction: column;
 }
 
-.customDatepicker {
+.booknowpageBg .customDatepicker {
   width: 100%;
   box-sizing: border-box;
   padding: 0.7rem 0.9rem;
@@ -146,16 +139,16 @@ p{
   transition: border 0.2s;
 }
 
-.customDatepicker:focus {
-  border: 1.5px solid #6A92BA;
+.booknowpageBg .customDatepicker:focus {
+  border: 1.5px solid #6a92ba;
   outline: none;
 }
 
-.requiredStar {
+.booknowpageBg .requiredStar {
   color: red;
 }
 
-.submitBookingBtn {
+.booknowpageBg .submitBookingBtn {
   grid-column: 1 / 3;
   background: #174a7c;
   color: #fff;
@@ -172,11 +165,11 @@ p{
   box-shadow: 0 2px 8px rgba(15, 60, 105, 0.06);
 }
 
-.submitBookingBtn:hover {
+.booknowpageBg .submitBookingBtn:hover {
   background: #0f3c69;
 }
 
-.formToast {
+.booknowpageBg .formToast {
   position: fixed;
   top: 2rem;
   right: 2rem;
@@ -189,7 +182,7 @@ p{
   font-size: 1.1rem;
 }
 /* animation for spinner icon  */
-.spinner {
+.booknowpageBg .spinner {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -240,7 +233,7 @@ p{
 }
 
 .formGroup .react-tel-input .form-control:focus {
-  border: 1.5px solid #6A92BA !important;
+  border: 1.5px solid #6a92ba !important;
   outline: none !important;
 }
 
@@ -251,7 +244,7 @@ p{
 }
 
 .formGroup .react-tel-input .flag-dropdown:focus {
-  border: 1.5px solid #6A92BA !important;
+  border: 1.5px solid #6a92ba !important;
   outline: none !important;
 }
 
@@ -266,31 +259,56 @@ p{
   width: auto;
 }
 
-
 .react-tel-input .form-control::placeholder {
   text-indent: 2px;
   opacity: 0.6;
   font-family: "Wix Madefor Text", sans-serif;
 }
 
+.booknowpageBg .left h2 {
+  margin-bottom: 20px;
+}
+.booknowpageBg .left p {
+  margin-bottom: 20px;
+}
+
 @media (max-width: 1024px) {
-  .container {
+  .booknowpageBg {
+    padding-top: 137px;
+    padding-bottom: 80px;
+  }
+
+  .booknowpageBg .container {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem 0.5rem;
   }
 
-  .right,
-  .left {
+  .booknowpageBg .left {
+    padding: 0;
+    width: 60%;
+    margin: auto;
+  }
+  .booknowpageBg .left h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .booknowpageBg .left p {
+    text-align: center;
+    margin-bottom: 31px;
+  }
+
+  .booknowpageBg .right,
+  .booknowpageBg .left {
     max-width: 100%;
     min-width: 0;
   }
 
-  .left {
+  .booknowpageBg .left {
     /* text-align: center; */
   }
 
-  .addressDateGroup {
+  .booknowpageBg .addressDateGroup {
     grid-template-columns: 1fr;
     gap: 1rem;
     grid-column: 1 / 2;
@@ -298,13 +316,43 @@ p{
 }
 
 @media (max-width: 700px) {
-  .booknowForm {
+  .booknowpageBg {
+    padding-top: 137px;
+    padding-bottom: 80px;
+  }
+
+  .booknowpageBg .left {
+    padding: 0;
+    width: 90%;
+    margin: auto;
+  }
+  .booknowpageBg .left h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .booknowpageBg .left p {
+    text-align: center;
+    margin-bottom: 31px;
+  }
+
+  .booknowpageBg .left p:last-child {
+    text-align: center;
+    margin-bottom: 81px;
+  }
+
+  .booknowpageBg .booknowForm {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .booknowForm button[type="submit"] {
+  .booknowpageBg .booknowForm button[type="submit"] {
     grid-column: 1 / 2;
+  }
+
+  .booknowpageBg .booknowForm button {
+    width: 109px;
+    height: 48px;
+    align-self: flex-start;
   }
 
   select {

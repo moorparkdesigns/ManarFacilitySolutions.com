@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useForm, ValidationError } from "@formspree/react";
+import { ValidationError } from "@formspree/react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import PhoneInput from "react-phone-input-2";
@@ -65,7 +65,6 @@ export default function BookNowForm() {
 
   const FORM_KEY = import.meta.env.VITE_FORMSPREE_ID;
   const GEOAPIFY_KEY = import.meta.env.VITE_GEOAPIFY_API_KEY;
-  const [state, handleSubmit] = useForm(FORM_KEY);
 
   const [formData, handleChange, setField] = useFormFields({
     fullname: "",
@@ -78,7 +77,6 @@ export default function BookNowForm() {
     notes: "",
   });
 
-  const [showToast, setShowToast] = useState(false);
   const [proximity, setProximity] = useState(null);
   const [phoneError, setPhoneError] = useState("");
   const [animateIn, setAnimateIn] = useState(false);
@@ -90,42 +88,28 @@ export default function BookNowForm() {
 
   useEffect(() => {
     const getCountryFromIP = async () => {
-      try {
-        const ipServices = [
-          "https://ipapi.co/json/",
-          "https://ip-api.com/json/",
-          "https://ipinfo.io/json",
-        ];
-
-        for (const service of ipServices) {
-          try {
-            const response = await fetch(service);
-            const data = await response.json();
-
-            let countryCode = null;
-            if (data.country_code) {
-              countryCode = data.country_code.toLowerCase();
-            } else if (data.countryCode) {
-              countryCode = data.countryCode.toLowerCase();
-            } else if (data.country) {
-              countryCode = data.country.toLowerCase();
-            }
-
-            if (countryCode) {
-              setField("phoneCountry", countryCode);
-              return;
-            }
-          } catch (error) {
-            console.warn(`Failed to get country from ${service}:`, error);
-            continue;
+      const ipServices = [
+        "https://ipapi.co/json/",
+        "https://ip-api.com/json/",
+        "https://ipinfo.io/json",
+      ];
+      for (const url of ipServices) {
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          const code =
+            data.country_code?.toLowerCase() ||
+            data.countryCode?.toLowerCase() ||
+            data.country?.toLowerCase();
+          if (code) {
+            setField("phoneCountry", code);
+            return;
           }
+        } catch {
+          // Fail silently, no console warning
         }
-
-        setField("phoneCountry", "us");
-      } catch (error) {
-        console.warn("Error getting country from IP:", error);
-        setField("phoneCountry", "us");
       }
+      setField("phoneCountry", "us");
     };
 
     const getProximityFromGeolocation = () => {
@@ -135,8 +119,8 @@ export default function BookNowForm() {
         ({ coords }) => {
           setProximity({ lat: coords.latitude, lon: coords.longitude });
         },
-        (error) => {
-          console.warn("Geolocation error:", error);
+        () => {
+          // Silently ignore errors
         }
       );
     };
@@ -145,37 +129,18 @@ export default function BookNowForm() {
     getProximityFromGeolocation();
   }, [setField]);
 
-  useEffect(() => {
-    if (state.succeeded) {
-      setShowToast(true);
-
-      const timer = setTimeout(() => {
-        setShowToast(false);
-        window.location.reload();
-      }, 4000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [state.succeeded]);
-
   const onSubmit = (e) => {
-    e.preventDefault();
-
     if (!isValidPhone(formData.phone, formData.phoneCountry)) {
+      e.preventDefault();
       setPhoneError(
         formData.phoneCountry === "us"
           ? "US numbers must be exactly 10 digits."
-          : "Number exceeds maximum length of 15 digits or is missing."
+          : "Invalid phone number format."
       );
       return;
     }
 
-    handleSubmit(e);
-  };
-
-  const handleToastClose = () => {
-    setShowToast(false);
-    window.location.reload();
+    // Let the form submit naturally to Formspree (no e.preventDefault here)
   };
 
   return (
@@ -185,12 +150,13 @@ export default function BookNowForm() {
           <h2>Booking form</h2>
           <p>
             Based in Gainesville, FL, we serve the greater Alachua County and
-            surrounding areas.
+            surrounding areas in the beautiful state of Florida.
           </p>
           <br />
           <p>
-            Fill out the form or call us at{" "}
-            <a href="tel:3529662627">(352)-966-2627</a>.
+            Fill out the form here or call us at{" "}
+            <a href="tel:3529662627">(352)-966-2627 </a> to book a cleaning
+            today!
           </p>
         </div>
 
@@ -206,13 +172,17 @@ export default function BookNowForm() {
             and we'll get in touch with you soon.
           </p>
 
-          <form className={styles.booknowForm} onSubmit={onSubmit}>
+          <form
+            className={styles.booknowForm}
+            action={`https://formspree.io/f/${FORM_KEY}`}
+            method="POST"
+            onSubmit={onSubmit}
+          >
             <FormField
               label="Full name"
               required
               fieldName="fullname"
               errorPrefix="Full name"
-              errors={state.errors}
             >
               <input
                 type="text"
@@ -230,7 +200,6 @@ export default function BookNowForm() {
               required
               fieldName="phone"
               errorPrefix="Phone"
-              errors={state.errors}
             >
               <div style={{ width: "100%" }}>
                 <PhoneInput
@@ -276,7 +245,6 @@ export default function BookNowForm() {
               required
               fieldName="email"
               errorPrefix="Email"
-              errors={state.errors}
             >
               <input
                 type="email"
@@ -294,7 +262,6 @@ export default function BookNowForm() {
               required
               fieldName="service"
               errorPrefix="Service"
-              errors={state.errors}
             >
               <select
                 id="service"
@@ -339,11 +306,7 @@ export default function BookNowForm() {
                   name="address"
                   value={formData.address || ""}
                 />
-                <ValidationError
-                  prefix="Address"
-                  field="address"
-                  errors={state.errors}
-                />
+                <ValidationError prefix="Address" field="address" />
               </div>
 
               <FormField
@@ -351,7 +314,6 @@ export default function BookNowForm() {
                 required
                 fieldName="date"
                 errorPrefix="Date"
-                errors={state.errors}
               >
                 <ReactDatePicker
                   selected={formData.date || null}
@@ -381,7 +343,6 @@ export default function BookNowForm() {
               fieldName="notes"
               errorPrefix="Notes"
               className={styles.fullWidth}
-              errors={state.errors}
             >
               <textarea
                 id="notes"
@@ -392,47 +353,12 @@ export default function BookNowForm() {
               />
             </FormField>
 
-            <button
-              type="submit"
-              className={styles.submitBookingBtn}
-              disabled={state.submitting}
-            >
-              {state.submitting ? (
-                <>
-                  Submitting
-                  <span className={styles.spinner}></span>
-                </>
-              ) : (
-                "Submit Booking"
-              )}
+            <button type="submit" className={styles.submitBookingBtn}>
+              Submit
             </button>
           </form>
         </div>
       </div>
-
-      {showToast && (
-        <div className={styles.formToast}>
-          Thank you! Your submission has been completed.
-          <button
-            type="button"
-            onClick={handleToastClose}
-            style={{
-              marginLeft: "1.5rem",
-              background: "transparent",
-              border: "none",
-              color: "#fff",
-              fontSize: "1.3rem",
-              cursor: "pointer",
-              position: "absolute",
-              top: "0.5rem",
-              right: "1rem",
-            }}
-            aria-label="Close"
-          >
-            &times;
-          </button>
-        </div>
-      )}
     </div>
   );
 }
