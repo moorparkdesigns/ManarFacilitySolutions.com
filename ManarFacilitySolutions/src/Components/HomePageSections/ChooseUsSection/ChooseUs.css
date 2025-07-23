@@ -1,0 +1,121 @@
+.chooseUs {
+  background-color: #1b2a39;
+  height: max-content;
+  color: white;
+  padding-top: 128px;
+  padding-bottom: 170px;
+}
+
+.chooseUs .container-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chooseUs .left,
+.chooseUs .right {
+  width: 50%;
+  max-width: 500px;
+  height: max-content;
+}
+
+.chooseUs button {
+  background-color: transparent;
+  border: 1px solid #14508d;
+  width: 130px;
+  height: 46px;
+  font-size: 18px;
+  color: white;
+  transition: transform 0.3 ease;
+  border-radius: 3px;
+}
+
+.chooseUs a {
+  text-decoration: none;
+  width: max-content;
+}
+
+.chooseUs button:hover {
+  transform: scale(1.2);
+}
+
+.chooseUs .left button {
+  margin-top: 32px;
+  display: block;
+}
+
+.chooseUs .right button {
+  margin-top: 63px;
+  display: none;
+}
+
+.chooseUs .right .text {
+  margin-top: 39px;
+}
+
+.chooseUs .right .text ul {
+  list-style: none;
+}
+
+.chooseUs .right .text ul li {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chooseUs .right .text ul li:first-child {
+  margin-top: 0;
+}
+
+.chooseUs .right .text ul li span {
+  margin-right: 11px;
+}
+
+/* Styles for tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .chooseUs {
+    padding: 94px 0;
+  }
+
+  .chooseUs .left {
+    max-width: 295px;
+    width: 45%;
+  }
+
+  .chooseUs .right {
+    max-width: 494px;
+    width: 55%;
+  }
+}
+
+/* Styles for phones */
+@media (max-width: 576px) {
+  .chooseUs {
+    padding-top: 70px;
+    padding-bottom: 77px;
+  }
+
+  .chooseUs .container-2 {
+    display: block;
+  }
+
+  .chooseUs .left {
+    width: 100%;
+  }
+  .chooseUs .right {
+    margin-top: 17px;
+    width: 100%;
+  }
+
+  .chooseUs .left button {
+    display: none;
+  }
+
+  .chooseUs .right button {
+    display: block;
+  }
+
+  .chooseUs .right .text ul li {
+    margin-top: 22px;
+  }
+}

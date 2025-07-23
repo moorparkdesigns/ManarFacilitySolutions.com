@@ -22,6 +22,7 @@ const Contact = () => {
 
   const [phoneError, setPhoneError] = useState("");
   const [isMobile, setIsMobile] = useState(false);
+  const [proximity, setProximity] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -49,15 +50,25 @@ const Contact = () => {
             data.country?.toLowerCase();
           if (countryCode) {
             setFormData((f) => ({ ...f, phoneCountry: countryCode }));
-            return;
+            break;
           }
         } catch {
-          console.warn(`GeoIP failed for: ${url}`);
+          // No console warning
         }
       }
       setFormData((f) => ({ ...f, phoneCountry: "us" }));
     };
+
     getCountryFromIP();
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        setProximity({ lat: coords.latitude, lon: coords.longitude });
+      },
+      () => {
+        // Silently ignore errors
+      }
+    );
   }, []);
 
   const stripNonDigits = (val) => val.replace(/\D/g, "");

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400..800;1,400..800&family=Wix+Madefor+Text:wght@400..800&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -28,6 +30,8 @@ h6 {
 p {
   font-size: 18px;
   font-weight: 400;
+  line-height: 22px;
+  font-family: "Wix Madefor Text", sans-serif;
 }
 
 /* Styles for tablets */
