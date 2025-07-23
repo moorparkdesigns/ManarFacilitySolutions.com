@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400..800;1,400..800&family=Wix+Madefor+Text:wght@400..800&display=swap");
-
 p {
   font-family: "Wix Madefor Text", sans-serif;
 }
@@ -8,7 +7,6 @@ p {
   background-color: #0f3c69;
   font-family: "Wix Madefor Text", sans-serif;
 }
-
 .booknowpageBg .container {
   display: flex;
   flex-direction: row;
@@ -20,18 +18,15 @@ p {
   padding: 10rem 1rem;
   box-sizing: border-box;
 }
-
 .booknowpageBg .left {
   max-width: 350px;
   color: #fefefe;
   padding-top: 2rem;
   padding-right: 10%;
 }
-
 .booknowpageBg .left a {
   color: #6a92ba;
 }
-
 .booknowpageBg .right {
   flex: 1 1 0;
   min-width: 600px;
@@ -46,7 +41,6 @@ p {
   opacity: 0;
   transform: translateY(40px);
 }
-
 .booknowpageBg .formTitle {
   font-size: 2.1rem;
   font-weight: 500;
@@ -54,11 +48,9 @@ p {
   font-family: "Newsreader", serif;
   text-align: left;
 }
-
 .booknowpageBg .formTitle em {
   font-style: italic;
 }
-
 .booknowpageBg .formSubtext {
   font-size: 1.25rem !important;
   font-weight: 600;
@@ -66,26 +58,22 @@ p {
   margin-top: 0.5rem;
   font-family: "Wix Madefor Text", sans-serif;
 }
-
 .booknowpageBg .booknowForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
   margin-top: 1.2rem;
 }
-
 .booknowpageBg .formGroup {
   display: flex;
   flex-direction: column;
 }
-
 .booknowpageBg .formGroup label {
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.3rem;
   color: #222;
 }
-
 .formGroup input,
 .formGroup select,
 .formGroup textarea {
@@ -97,24 +85,20 @@ p {
   transition: border 0.2s;
   font-family: "Wix Madefor Text", sans-serif;
 }
-
 .formGroup input:focus,
 .formGroup select:focus,
 .formGroup textarea:focus {
   border: 1.5px solid #6a92ba;
   outline: none;
 }
-
 .fullWidth {
   grid-column: 1 / -1;
   width: 100%;
 }
-
 .booknowpageBg .fullWidth textarea {
   width: auto;
   min-height: 150px;
 }
-
 .booknowpageBg .addressDateGroup {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -122,12 +106,10 @@ p {
   grid-column: 1 / -1;
   align-items: end;
 }
-
 .booknowpageBg .addressDateGroup > div {
   display: flex;
   flex-direction: column;
 }
-
 .booknowpageBg .customDatepicker {
   width: 100%;
   box-sizing: border-box;
@@ -138,16 +120,13 @@ p {
   background: #fff;
   transition: border 0.2s;
 }
-
 .booknowpageBg .customDatepicker:focus {
   border: 1.5px solid #6a92ba;
   outline: none;
 }
-
 .booknowpageBg .requiredStar {
   color: red;
 }
-
 .booknowpageBg .submitBookingBtn {
   grid-column: 1 / 3;
   background: #174a7c;
@@ -164,11 +143,9 @@ p {
   justify-self: center;
   box-shadow: 0 2px 8px rgba(15, 60, 105, 0.06);
 }
-
 .booknowpageBg .submitBookingBtn:hover {
   background: #0f3c69;
 }
-
 .booknowpageBg .formToast {
   position: fixed;
   top: 2rem;
@@ -180,8 +157,7 @@ p {
   box-shadow: 0 2px 8px rgba(15, 60, 105, 0.15);
   z-index: 9999;
   font-size: 1.1rem;
-}
-/* animation for spinner icon  */
+} /* animation for spinner icon */
 .booknowpageBg .spinner {
   display: inline-block;
   width: 16px;
@@ -193,21 +169,17 @@ p {
   margin-left: 8px;
   vertical-align: middle;
 }
-
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
-}
-
-/* Phone Input Styling - Fixed Width and Consistent Styling */
+} /* Phone Input Styling - Fixed Width and Consistent Styling */
 .formGroup .react-tel-input {
   width: 100% !important;
   min-width: 0 !important;
   max-width: 100% !important;
   height: 3.2em !important;
 }
-
 .formGroup .react-tel-input .flag-dropdown {
   width: 50px !important;
   border: 1px solid #cfd8e3 !important;
@@ -215,7 +187,6 @@ p {
   background: #fff !important;
   transition: border 0.2s !important;
 }
-
 .formGroup .react-tel-input .form-control {
   width: 100% !important;
   min-width: 0 !important;
@@ -231,59 +202,48 @@ p {
   transition: border 0.2s !important;
   font-family: "Wix Madefor Text", sans-serif !important;
 }
-
 .formGroup .react-tel-input .form-control:focus {
   border: 1.5px solid #6a92ba !important;
   outline: none !important;
 }
-
 .formGroup .react-tel-input .form-control::placeholder {
   text-indent: 2px !important;
   opacity: 0.6 !important;
   font-family: "Wix Madefor Text", sans-serif !important;
 }
-
 .formGroup .react-tel-input .flag-dropdown:focus {
   border: 1.5px solid #6a92ba !important;
   outline: none !important;
-}
-
-/* Remove old phone input styles that might conflict */
+} /* Remove old phone input styles that might conflict */
 .react-tel-input .flag-dropdown {
   width: 50px;
 }
-
 .react-tel-input .form-control {
   padding-left: 60px !important;
   height: 3.2rem;
   width: auto;
 }
-
 .react-tel-input .form-control::placeholder {
   text-indent: 2px;
   opacity: 0.6;
   font-family: "Wix Madefor Text", sans-serif;
 }
-
 .booknowpageBg .left h2 {
   margin-bottom: 20px;
 }
 .booknowpageBg .left p {
   margin-bottom: 20px;
 }
-
 @media (max-width: 1024px) {
   .booknowpageBg {
     padding-top: 137px;
     padding-bottom: 80px;
   }
-
   .booknowpageBg .container {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem 0.5rem;
   }
-
   .booknowpageBg .left {
     padding: 0;
     width: 60%;
@@ -297,30 +257,25 @@ p {
     text-align: center;
     margin-bottom: 31px;
   }
-
   .booknowpageBg .right,
   .booknowpageBg .left {
     max-width: 100%;
     min-width: 0;
   }
-
   .booknowpageBg .left {
     /* text-align: center; */
   }
-
   .booknowpageBg .addressDateGroup {
     grid-template-columns: 1fr;
     gap: 1rem;
     grid-column: 1 / 2;
   }
 }
-
 @media (max-width: 700px) {
   .booknowpageBg {
     padding-top: 137px;
     padding-bottom: 80px;
   }
-
   .booknowpageBg .left {
     padding: 0;
     width: 90%;
@@ -334,32 +289,26 @@ p {
     text-align: center;
     margin-bottom: 31px;
   }
-
   .booknowpageBg .left p:last-child {
     text-align: center;
     margin-bottom: 81px;
   }
-
   .booknowpageBg .booknowForm {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-
   .booknowpageBg .booknowForm button[type="submit"] {
     grid-column: 1 / 2;
   }
-
   .booknowpageBg .booknowForm button {
     width: 109px;
     height: 48px;
     align-self: flex-start;
   }
-
   select {
     height: 3.2rem;
   }
 }
-
 @keyframes fadeInUpBezier {
   from {
     opacity: 0;
@@ -370,7 +319,6 @@ p {
     transform: translateY(0);
   }
 }
-
 .animateIn {
   animation: fadeInUpBezier 0.4s cubic-bezier(0.77, 0, 0.175, 1) forwards;
   animation-delay: 0.1s;

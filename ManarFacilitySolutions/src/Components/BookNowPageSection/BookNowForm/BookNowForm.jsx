@@ -11,17 +11,9 @@ function stripNonDigits(value) {
   return value.replace(/\D/g, "");
 }
 
-function isValidPhone(phoneValue, countryCode) {
+function isValidPhone(phoneValue) {
   const digitsOnly = stripNonDigits(phoneValue);
-
-  if (countryCode === "us") {
-    const digits = digitsOnly.startsWith("1")
-      ? digitsOnly.slice(1)
-      : digitsOnly;
-    return digits.length === 10;
-  } else {
-    return digitsOnly.length <= 15 && digitsOnly.length > 0;
-  }
+  return digitsOnly.length >= 7 && digitsOnly.length <= 15; // ITU international standard
 }
 
 // Custom hook for form fields
@@ -207,15 +199,29 @@ export default function BookNowForm() {
                   value={formData.phone}
                   onChange={(value, data) => {
                     const digitsOnly = value.replace(/\D/g, "");
+                    const countryDialCode = data.dialCode || "1";
+
+                    // Remove country code to get national number
+                    let nationalNumber = digitsOnly;
+                    if (nationalNumber.startsWith(countryDialCode)) {
+                      nationalNumber = nationalNumber.slice(
+                        countryDialCode.length
+                      );
+                    }
+
+                    // Enforce maximum 10 digits for national number
+                    if (nationalNumber.length > 10) {
+                      return; // Don't allow more than 10 digits
+                    }
+
+                    // Special handling for US numbers
                     if (data.countryCode === "us") {
-                      let nationalNumber = digitsOnly;
-                      if (nationalNumber.startsWith("1")) {
-                        nationalNumber = nationalNumber.slice(1);
-                      }
                       if (nationalNumber.length > 10) return;
                     } else {
-                      if (digitsOnly.length > 15) return;
+                      // For other countries, still limit to 10 digits after country code
+                      if (nationalNumber.length > 10) return;
                     }
+
                     setField("phone", value);
                     setField("phoneCountry", data.countryCode);
                     setPhoneError("");
