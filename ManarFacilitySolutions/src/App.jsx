@@ -10,6 +10,8 @@ import ServicesPage from "./Pages/ServicesPage";
 import AboutPage from "./Pages/AboutPage";
 import BookNowPage from "./Pages/BookNowPage";
 import ContactPage from "./Pages/ContactPage";
+import PrivacyPolicyPage from "./Pages/PrivacyPolicyPage";
+import TermsPage from "./Pages/T&CPage";
 
 // Layout component wrapping pages with common UI (Navbar and Footer)
 function Layout({ children }) {
@@ -74,11 +76,29 @@ function App() {
           }
         ></Route>
         <Route
-          path="/book-now"
+          path="/Book-Now"
           element={
             <Layout>
               {" "}
               <BookNowPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <Layout>
+              {" "}
+              <PrivacyPolicyPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/terms-and-conditions"
+          element={
+            <Layout>
+              {" "}
+              <TermsPage />
             </Layout>
           }
         />

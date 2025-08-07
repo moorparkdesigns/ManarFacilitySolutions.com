@@ -422,3 +422,16 @@ label {
     transform: scale(0.97);
   }
 }
+
+.pText {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.pText a {
+  text-decoration: none;
+  color: #0077cc;
+}
+.pText a:hover {
+  text-decoration: underline;
+}

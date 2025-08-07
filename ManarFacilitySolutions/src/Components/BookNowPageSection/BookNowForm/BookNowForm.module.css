@@ -234,6 +234,10 @@ p {
 .booknowpageBg .left p {
   margin-bottom: 20px;
 }
+
+.pTextCont {
+  width: 200%;
+}
 @media (max-width: 1024px) {
   .booknowpageBg {
     padding-top: 137px;
@@ -281,6 +285,11 @@ p {
     width: 90%;
     margin: auto;
   }
+  .booknowpageBg .right {
+    min-width: none;
+    width: 80%;
+    margin: auto;
+  }
   .booknowpageBg .left h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -308,6 +317,9 @@ p {
   select {
     height: 3.2rem;
   }
+  .pTextCont {
+    width: 100%;
+  }
 }
 @keyframes fadeInUpBezier {
   from {
@@ -323,4 +335,17 @@ p {
   animation: fadeInUpBezier 0.4s cubic-bezier(0.77, 0, 0.175, 1) forwards;
   animation-delay: 0.1s;
   pointer-events: auto;
+}
+
+.pText {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.pText a {
+  text-decoration: none;
+  color: #0077cc;
+}
+.pText a:hover {
+  text-decoration: underline;
 }
