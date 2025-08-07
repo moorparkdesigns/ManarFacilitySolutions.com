@@ -1,8 +1,69 @@
 import _styles from "../Components/Common/Policy.module.css";
+import { Helmet } from "react-helmet-async";
+import Img5 from "../assets/Back-ground-images/5.jpg";
 
 export default function TermsPage() {
   return (
     <div className={_styles.containerPolicy}>
+      <Helmet key="terms-page">
+        <title>SMS Terms & Conditions | Manar Facility Solutions</title>
+        <meta
+          name="description"
+          content="Understand the terms and conditions for SMS communications with Manar Facility Solutions including opt-in, frequency, fees, and support."
+        />
+        <meta
+          name="keywords"
+          content="Terms and Conditions, SMS terms, opt-in policy, message frequency, SMS support, Manar Facility Solutions"
+        />
+        <link
+          rel="canonical"
+          href="https://manarfacilitysolutions.com/terms-and-conditions"
+        />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="SMS Terms & Conditions | Manar Facility Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Review the full SMS communication policy including consent, frequency, fees, and how to opt-out from Manar Facility Solutions messages."
+        />
+        <meta property="og:image" content={Img5} />
+        <meta
+          property="og:url"
+          content="https://manarfacilitysolutions.com/terms-and-conditions"
+        />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="SMS Terms & Conditions | Manar Facility Solutions"
+        />
+        <meta
+          name="twitter:description"
+          content="Learn about the SMS messaging terms, your rights, and contact methods at Manar Facility Solutions."
+        />
+        <meta name="twitter:image" content={Img5} />
+
+        {/* Preload image */}
+        <link rel="preload" as="image" href={Img5} />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Terms & Conditions",
+            description:
+              "Terms and conditions for SMS communications with Manar Facility Solutions including opt-in, frequency, and opt-out details.",
+            url: "https://manarfacilitysolutions.com/terms-and-conditions",
+          })}
+        </script>
+      </Helmet>
+
       <h1 className={_styles.heading}>
         Terms & Conditions – SMS Communications
       </h1>

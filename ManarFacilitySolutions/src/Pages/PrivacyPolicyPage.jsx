@@ -1,8 +1,69 @@
 import _styles from "../Components/Common/Policy.module.css";
+import { Helmet } from "react-helmet-async";
+import Img5 from "../assets/Back-ground-images/5.jpg";
 
 export default function PrivacyPolicyPage() {
   return (
     <div className={_styles.containerPolicy}>
+      <Helmet key="privacy-policy-page">
+        <title>Privacy Policy | Manar Facility Solutions</title>
+        <meta
+          name="description"
+          content="Review the privacy policy of Manar Facility Solutions, outlining how we collect, use, and protect your personal data and communication preferences."
+        />
+        <meta
+          name="keywords"
+          content="Privacy Policy, Manar Facility Solutions privacy, SMS consent, data usage, data protection, Gainesville cleaning services"
+        />
+        <link
+          rel="canonical"
+          href="https://manarfacilitysolutions.com/privacy-policy"
+        />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="Privacy Policy | Manar Facility Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Learn how Manar Facility Solutions protects your personal information and respects your privacy and communication preferences."
+        />
+        <meta property="og:image" content={Img5} />
+        <meta
+          property="og:url"
+          content="https://manarfacilitysolutions.com/privacy-policy"
+        />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Privacy Policy | Manar Facility Solutions"
+        />
+        <meta
+          name="twitter:description"
+          content="See how Manar Facility Solutions collects, uses, and protects customer data including SMS opt-ins."
+        />
+        <meta name="twitter:image" content={Img5} />
+
+        {/* Preload image */}
+        <link rel="preload" as="image" href={Img5} />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Privacy Policy",
+            description:
+              "Details on how Manar Facility Solutions collects, uses, and protects personal data and communication preferences.",
+            url: "https://manarfacilitysolutions.com/privacy-policy",
+          })}
+        </script>
+      </Helmet>
+
       <h1 className={_styles.heading}>Privacy Policy</h1>
 
       <p className={_styles.paragraph}>
