@@ -1,6 +1,13 @@
 .footer {
-  height: 159px;
+  height: max-content;
   background-color: #e7ddd7;
+  min-height: 159px;
+  padding: 25px 0;
+  display: flex;
+  align-items: center;
+}
+.footer .holder {
+  width: 100%;
 }
 .footer .container {
   display: flex;
@@ -59,11 +66,29 @@
 .footer .container .content span ul li a:hover {
   text-decoration: underline;
 }
+.footer-bottom {
+  border-top: 1px solid rgb(133, 133, 133);
+  margin-top: 15px;
+  padding-top: 15px;
+}
+.footer-bottom p {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.footer-bottom a {
+  color: rgb(41, 41, 41);
+  font-size: 1rem;
+  text-decoration: none;
+}
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
 
 /* Styles for tablets */
 @media (min-width: 577px) and (max-width: 991px) {
   .footer {
-    height: 140px;
+    height: max-content;
   }
 
   .footer .container img {
@@ -74,12 +99,20 @@
   .footer .container .content span {
     font-size: 15px;
   }
+
+  .footer-bottom p {
+    font-size: 15px;
+  }
+
+  .footer-bottom a {
+    font-size: 15px;
+  }
 }
 
 /* Styles for phones */
 @media (max-width: 576px) {
   .footer {
-    height: 210px;
+    height: max-content;
   }
 
   .footer .container {
@@ -102,5 +135,16 @@
   .footer .container .content span {
     font-size: 13px;
     text-align: left;
+  }
+
+  .footer-bottom p {
+    font-size: 13px;
+    display: block;
+  }
+  .footer-bottom span {
+    display: block;
+  }
+  .footer-bottom a {
+    font-size: 13px;
   }
 }

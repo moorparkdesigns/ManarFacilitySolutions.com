@@ -151,6 +151,7 @@
 @media (max-width: 576px) {
   .heroSection {
     min-height: 840px;
+    height: max-content;
   }
 
   .heroSection::before {
@@ -160,7 +161,7 @@
   .heroSection .background-content {
     width: 100%;
     display: block;
-    margin-top: 329px;
+    margin-top: 290px;
   }
 
   .heroSection .text {

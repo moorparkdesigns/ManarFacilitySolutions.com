@@ -6,6 +6,10 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import GeoapifyAutocomplete from "../../GeoapifyAutocomplete/GeoapifyAutocomplete.jsx";
 import styles from "./BookNowForm.module.css";
+import { Link } from "react-router-dom";
+
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 function stripNonDigits(value) {
   return value.replace(/\D/g, "");
@@ -358,6 +362,32 @@ export default function BookNowForm() {
                 onChange={handleChange}
               />
             </FormField>
+
+            <div>
+              <div className={styles.pTextCont}>
+                <input type="hidden" name="smsConsent" value="no" />
+
+                <FormControlLabel
+                  control={<Checkbox name="smsConsent" value="yes" />}
+                  label="By checking this box, you agree to receive text messages from Manar Facility Solutions related to conversational purposes at the phone number provided above. You may reply STOP to opt-out at any time. Reply HELP for assistance. Messages and data rates may apply. Message frequency will vary."
+                  sx={{
+                    alignItems: "flex-start",
+                    "& .MuiFormControlLabel-label": {
+                      fontSize: "0.9rem",
+                      color: "#333",
+                      lineHeight: 1.4,
+                      marginTop: "10px",
+                      marginBottom: "20px",
+                    },
+                  }}
+                />
+                <div className={styles.pText}>
+                  Learn more on our{" "}
+                  <Link to="/privacy-policy">Privacy Policy</Link> Page and{" "}
+                  <Link to="/terms-and-conditions">Terms & Conditions</Link>
+                </div>
+              </div>
+            </div>
 
             <button type="submit" className={styles.submitBookingBtn}>
               Submit

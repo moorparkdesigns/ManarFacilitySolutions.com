@@ -26,6 +26,9 @@
 
 .our-mission .text h1 {
   font-weight: 500;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .our-mission .text p {
   width: 100%;
@@ -88,6 +91,11 @@
 
 /* Styles for tablets */
 @media (min-width: 577px) and (max-width: 991px) {
+  .our-mission {
+    height: max-content;
+    min-height: 574px;
+    padding: 20px 0;
+  }
   .our-mission .img img {
     height: 415px;
     width: 95%;
