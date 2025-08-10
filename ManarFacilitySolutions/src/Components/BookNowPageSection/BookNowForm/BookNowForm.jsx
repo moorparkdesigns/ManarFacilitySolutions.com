@@ -23,6 +23,7 @@ function isValidPhone(phoneValue) {
 // Custom hook for form fields
 function useFormFields(initial) {
   const [fields, setFields] = useState(initial);
+
   const handleFieldChange = useCallback((e) => {
     const { name, value } = e.target;
     setFields((f) => ({ ...f, [name]: value }));
@@ -76,6 +77,7 @@ export default function BookNowForm() {
   const [proximity, setProximity] = useState(null);
   const [phoneError, setPhoneError] = useState("");
   const [animateIn, setAnimateIn] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimateIn(true), 2000);
@@ -365,9 +367,12 @@ export default function BookNowForm() {
 
             <div>
               <div className={styles.pTextCont}>
-                <input type="hidden" name="smsConsent" value="no" />
+                {!checked && (
+                  <input type="hidden" name="smsConsent" value="no" />
+                )}
 
                 <FormControlLabel
+                  onChange={(e) => setChecked(e.target.checked)}
                   control={<Checkbox name="smsConsent" value="yes" />}
                   label="By checking this box, you agree to receive text messages from Manar Facility Solutions related to conversational purposes at the phone number provided above. You may reply STOP to opt-out at any time. Reply HELP for assistance. Messages and data rates may apply. Message frequency will vary."
                   sx={{

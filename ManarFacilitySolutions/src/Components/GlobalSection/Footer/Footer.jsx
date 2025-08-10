@@ -75,9 +75,10 @@ function Footer() {
           <p>
             <span>
               © {new Date().getFullYear()} Manar Facility Solutions. All rights
+              reserved.
             </span>
             <span>
-              reserved. <Link to="/privacy-policy">Privacy Policy</Link> |{" "}
+              <Link to="/privacy-policy">Privacy Policy</Link> |{" "}
               <Link to="/terms-and-conditions">Terms & Conditions</Link>
             </span>
           </p>

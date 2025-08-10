@@ -27,6 +27,7 @@ const Contact = () => {
   const [phoneError, setPhoneError] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const [proximity, setProximity] = useState(null);
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -321,9 +322,10 @@ const Contact = () => {
 
           <div>
             <div className={styles.pTextCont}>
-              <input type="hidden" name="smsConsent" value="no" />
+              {!checked && <input type="hidden" name="smsConsent" value="no" />}
 
               <FormControlLabel
+                onChange={(e) => setChecked(e.target.checked)}
                 control={<Checkbox name="smsConsent" value="yes" />}
                 label="By checking this box, you agree to receive text messages from Manar Facility Solutions related to conversational purposes at the phone number provided above. You may reply STOP to opt-out at any time. Reply HELP for assistance. Messages and data rates may apply. Message frequency will vary."
                 sx={{
